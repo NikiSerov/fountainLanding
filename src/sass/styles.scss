@@ -249,7 +249,7 @@ textarea {
 
         svg path {
             fill: $black;
-            transition: fill 0.4s;
+            transition: fill 0.3s;
         }
 
         &:hover svg path {
@@ -264,7 +264,7 @@ textarea {
 
         svg path {
             fill: $black;
-            transition: fill 0.4s;
+            transition: fill 0.3s;
         }
 
         &:hover svg path {
@@ -630,6 +630,11 @@ main {
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: background-color 0.5s;
+
+        &:hover {
+            background-color: $white;
+        }
 
         &:empty {
             display: none;

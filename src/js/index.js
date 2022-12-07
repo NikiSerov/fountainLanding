@@ -160,8 +160,22 @@ const selectSortingType = (e) => {
     const selectedSortName = element.textContent;
     sortByBtn.querySelector(".sort-container__selected-sort").textContent = selectedSortName;
     toggleSortingMenu();
+    sorting(cardsArray, element);
   }
-}
+};
+
+const sorting = (cardsArray, element) => {
+  switch(element.dataset.sort) {
+    case 'priceAsc': 
+      return renderCardsHTML(cardsArray.sort((a, b) => a.price - b.price));
+    case 'priceDesc':
+      return renderCardsHTML(cardsArray.sort((a, b) => b.price - a.price));
+    case 'nameAsc':
+      return renderCardsHTML(cardsArray.sort((a, b) => a.title.localeCompare(b.title)));
+    case 'nameDesc':
+      return renderCardsHTML(cardsArray.sort((a, b) => b.title.localeCompare(a.title)));
+  }  
+};
 
 searchBtn.addEventListener("click", toggleSearchForm);
 searchFormCloseBtn.addEventListener("click", toggleSearchForm);
