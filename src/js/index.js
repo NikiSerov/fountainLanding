@@ -13,6 +13,12 @@ const swiper = new Swiper(".swiper", {
   },
 });
 
+const sortParams = {
+  priceDesc: 'Price &#8595;',
+  priceAsc: 'Price &#8593;',
+  nameDesc: 'Name (Z &#8594; A)',
+  nameAsc: 'Name (A &#8594; Z)',
+}
 const searchForm = document.querySelector(".search-form");
 const searchBtn = document.querySelector(".search-button");
 const loginBtn = document.querySelector(".login-button");
@@ -146,36 +152,65 @@ function toggleSortingMenu() {
     sortingMenu.classList.remove("opened");
   } else {
     sortingMenu.classList.add("opened");
-    const initialSortingMenuHeight = sortingMenu.offsetHeight;
     const sortingTypeButtonsHeight = Array.from(sortingTypeButtons).reduce((accumulator, currentValue) => accumulator + currentValue.offsetHeight, 0);
-    sortingMenu.style.height = `${initialSortingMenuHeight + sortingTypeButtonsHeight}px`;
+    sortingMenu.style.height = `${sortingTypeButtonsHeight}px`;
   }
 };
+
+const setSortBtnText = (sortName) => {
+  sortByBtn.querySelector(".sort-container__selected-sort").innerHTML = sortName;
+}
 
 const selectSortingType = (e) => {
   const element = e.target;
   if (!element.classList.contains("selected")) {
     e.currentTarget.querySelector(".selected")?.classList.remove("selected");
     element.classList.add("selected");
-    const selectedSortName = element.textContent;
-    sortByBtn.querySelector(".sort-container__selected-sort").textContent = selectedSortName;
+    setSortBtnText(sortParams[element.dataset.sort]);
     toggleSortingMenu();
-    sorting(cardsArray, element);
+    getSortedCoursesCardsHTML(cardsArray, element.dataset.sort);
   }
 };
 
-const sorting = (cardsArray, element) => {
-  switch(element.dataset.sort) {
+const getSortedCoursesCardsHTML = (cardsArray, sortParam) => {
+  switch(sortParam) {
     case 'priceAsc': 
+      setLocation({sort: 'priceAsc'});
       return renderCardsHTML(cardsArray.sort((a, b) => a.price - b.price));
     case 'priceDesc':
+      setLocation({sort: 'priceDesc'});
       return renderCardsHTML(cardsArray.sort((a, b) => b.price - a.price));
     case 'nameAsc':
+      setLocation({sort: 'nameAsc'});
       return renderCardsHTML(cardsArray.sort((a, b) => a.title.localeCompare(b.title)));
     case 'nameDesc':
+      setLocation({sort: 'nameDesc'});
       return renderCardsHTML(cardsArray.sort((a, b) => b.title.localeCompare(a.title)));
   }  
 };
+
+const setLocation = (paramObj) => {
+  let queryString = '?';
+  for (let key in paramObj) {
+    queryString += `${key}=${paramObj[key]}&`;
+  };
+  const {protocol, host, pathname} = window.location;
+  const newurl = `${protocol}//${host}${pathname}${queryString.slice(0, -1)}`;
+    window.history.pushState({path:newurl},'',newurl);
+};
+
+const parseUrl = () => {
+  const url = new URL(window.location.href);
+  const sortParam = url.searchParams.get('sort');
+  if (sortParam) {
+    const element = document.querySelector(`[data-sort=${sortParam}]`)
+    element.classList.add("selected");
+    getSortedCoursesCardsHTML(cardsArray, sortParam);
+    setSortBtnText(sortParams[sortParam]);
+  }
+};
+
+parseUrl();
 
 searchBtn.addEventListener("click", toggleSearchForm);
 searchFormCloseBtn.addEventListener("click", toggleSearchForm);

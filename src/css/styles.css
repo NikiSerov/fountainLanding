@@ -633,10 +633,9 @@ main {
   width: 100%;
   background-color: #FFFFFF;
   border: 1px solid #000000;
-  border-radius: 22px;
-  padding-top: 40px;
+  border-radius: 25px;
   position: absolute;
-  top: 0;
+  top: 2px;
   height: 40px;
   overflow: hidden;
   transition: height 0.4s ease-out;
@@ -649,11 +648,16 @@ main {
 }
 
 .sorting-selection__button.selected {
-  color: #ca5807;
+  color: #f99b58;
 }
 
 .sorting-selection__button:hover {
   color: #FF6F28;
+}
+
+.sorting-selection__button:first-child {
+  padding-top: 40px;
+  height: 83px;
 }
 
 .courses-container {
