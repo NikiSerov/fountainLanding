@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Learn marketing from top instructors",
+    "image": "images/popular_courses_6.png",
+    "score": "4.5",
+    "duration": "5",
+    "studentsCount": "1500",
+    "price": "29.99"
+  },
+  {
+    "title": "Front-end development is not as hard as you think",
+    "image": "images/popular_courses_1.png",
+    "score": "4.7",
+    "duration": "6",
+    "studentsCount": "1700",
+    "price": "34.99"
+  }
+]

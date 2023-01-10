@@ -16,6 +16,7 @@
     "gulp-plumber": "^1.2.1",
     "gulp-pug": "^5.0.0",
     "gulp-sass": "^5.1.0",
+    "gulp-uglify-es": "^3.0.0",
     "gulp-uglyfly": "^1.2.3",
     "sass": "^1.56.1"
   },

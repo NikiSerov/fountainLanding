@@ -8,7 +8,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const cleanCss = require('gulp-clean-css');
 const concat = require('gulp-concat');
 const babel = require('gulp-babel');
-const uglyfly = require('gulp-uglyfly');
+const uglyfly = require('gulp-uglify-es').default;
 const cachebust = require('gulp-cache-bust');
 
 //CSS
@@ -27,7 +27,7 @@ const buildCss = () => {
     .pipe(autoprefixer())
     .pipe(cleanCss({level: 2}))
     .pipe(dest('build'))
-    .pipe(browserSync.reload({ stream: true })); 
+    .pipe(browserSync.reload({ stream: true }));
 }
 
 //JS
@@ -36,11 +36,11 @@ const buildJs = () => {
   return src('src/js/*.js')
     .pipe(concat('js/scripts.js'))
     .pipe(babel({
-      presets: ['@babel/env']
+      presets: ['@babel/preset-env']
     }))
     .pipe(uglyfly())
     .pipe(dest('build'))
-    .pipe(browserSync.reload({ stream: true })); 
+    .pipe(browserSync.reload({ stream: true }));
 }
 
 //HTML
@@ -51,7 +51,7 @@ const buildHtml = () => {
       type: 'timestamp'
     }))
     .pipe(dest('build'))
-    .pipe(browserSync.reload({ stream: true })); 
+    .pipe(browserSync.reload({ stream: true }));
 }
 
 //images
@@ -59,7 +59,7 @@ const buildHtml = () => {
 const moveImages = () => {
   return src('src/images/*')
       .pipe(dest('build/images'))
-      .pipe(browserSync.reload({ stream: true })); 
+      .pipe(browserSync.reload({ stream: true }));
 }
 
 //icons
