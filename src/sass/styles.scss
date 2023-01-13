@@ -131,7 +131,7 @@ textarea {
     display: none;
 }
 
-/////////////
+//////////
 
 .page-header {
     display: flex;
@@ -437,13 +437,28 @@ main {
     display: none;
 }
 
-.experts {
+.universal-section {
     background: url(../images/we_are_experts_bg.png) top / cover no-repeat;
     width: 100%;
     padding: 54px 0;
 
+    &--examination {
+        .universal-section-content__title--accent::after {
+            content: '';
+        }
+    }
+
+    &--competate {
+        &__title {
+            font-size: 48px;
+            font-weight: 600;
+            color: $black;
+        }
+    }
+
     &-wrapper {
         display: flex;
+        justify-content: space-between;
         gap: 60px;
     }
 
@@ -451,78 +466,22 @@ main {
         width: 43%;
         position: relative;
 
-        &__logo {
+        &__img {
             width: 94%;
             height: 100%;
         }
 
-        &__instructors {
-            width: 168px;
-            height: 210px;
+        &__sideblock-wrapper {
             position: absolute;
-            bottom: 82px;
-            right: 0;
-            background-color: $white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-evenly;
-            box-shadow: 0px 0px 69px rgba(112, 112, 112, 0.25);
-            border-radius: 10px;
 
-            &-img {
-                width: 50px;
-                height: 50px;
+            &--instructors {
+                bottom: 90px;
+                right: 0;
             }
 
-            &-text {
-                color: $black;
-                text-align: center;
-                line-height: 140%;
-
-                &--accent {
-                    font-weight: 600;
-                    color: $orange;
-                    position: relative;
-
-                    &::after {
-                        content: url(../icons/short_underline.svg);
-                        position: absolute;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        height: 5px;
-                        bottom: 17px;
-                    }
-                }
-            }
-
-            &-wrapper {
-                position: relative;
-                display: flex;
-                justify-content: center;
-            }
-
-            &-image {
-                width: 40px;
-                height: 40px;
-                border: 3px solid $white;
-                border-radius: 100%;
-                object-fit: cover;
-                position: absolute;
-
-                &:first-child {
-                    right: 22px;
-                }
-
-                &:nth-child(2) {
-                    position: static;
-                    z-index: 1;
-                }
-
-                &:nth-child(3) {
-                    left: 22px;
-                    z-index: 2;
-                }
+            &--examination {
+                bottom: 90px;
+                left: -60px;
             }
         }
     }
@@ -561,6 +520,89 @@ main {
 
         &__button {
             align-self: flex-start;
+        }
+    }
+}
+
+.sideblock {
+    width: 170px;
+    padding: 16px;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 0px 0px 69px rgba(112, 112, 112, 0.25);
+    border-radius: 10px;
+
+    &__logo {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+
+    &-text {
+        color: $black;
+        text-align: center;
+        line-height: 140%;
+        font-size: 20px;
+
+        &--accent {
+            font-size: 22px;
+            font-weight: 600;
+            color: $orange;
+            position: relative;
+            display: block;
+
+            &::after {
+                content: url(../icons/short_underline.svg);
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 5px;
+                bottom: 15px;
+            }
+        }
+    }
+
+    &--competate {
+        width: 140px;
+
+        .sideblock-text--accent::after {
+            content: url(../icons/shortest_underline.svg);
+            height: 4px;
+            rotate: (2deg);
+        }
+    }
+}
+
+.instructors-faces {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+
+    &__image {
+        width: 40px;
+        height: 40px;
+        border: 3px solid $white;
+        border-radius: 100%;
+        object-fit: cover;
+        position: absolute;
+
+        &:first-child {
+            right: 22px;
+        }
+
+        &:nth-child(2) {
+            position: static;
+            z-index: 1;
+        }
+
+        &:nth-child(3) {
+            left: 22px;
+            z-index: 2;
         }
     }
 }
@@ -647,7 +689,6 @@ main {
     background-color: $white;
     border: 1px solid $black;
     border-radius: 25px;
-    // padding-top: -40px;
     position: absolute;
     top: 2px;
     height: 40px;
@@ -758,5 +799,50 @@ main {
     &__price {
         color: $orange;
         font-weight: 600;
+    }
+}
+
+.popular-examination {
+    padding-top: 160px;
+    padding-bottom: 100px;
+
+    &__title {
+        margin-bottom: 38px;
+    }
+
+    .slider__slide {
+        height: 303px;
+        border-radius: 10px;
+        overflow: hidden;
+
+        &-img {
+            filter: brightness(100%);
+            transition: filter .3s;
+
+            &:hover {
+                filter: brightness(170%);
+            }
+        }
+
+        &-text {
+            position: absolute;
+            bottom: 10px;
+            left: 25px;
+            font-weight: 400;
+            font-size: 24px;
+            transition: color .3s ease-in-out;
+            width: 170px;
+        }
+
+        &:hover {
+            .slider__slide-text {
+                color: $brighterOrange;
+            }
+        }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        top: 45%;
     }
 }

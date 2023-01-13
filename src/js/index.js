@@ -27,56 +27,7 @@ const searchFormCloseBtn = document.querySelector(".search-form__close-btn");
 const sortingMenu = document.querySelector(".sorting-selection");
 const sortByBtn = document.querySelector(".sort-container__btn");
 const sortingTypeButtons = document.querySelectorAll(".sorting-selection__button");
-const cardsArray = [
-  {
-    title: "Learn marketing from top instructors",
-    image: "images/popular_courses_6.png",
-    score: 4.5,
-    duration: 5,
-    studentsCount: 1500,
-    price: 29.99,
-  },
-  {
-    title: "Front-end development is not as hard as you think",
-    image: "images/popular_courses_1.png",
-    score: 4.7,
-    duration: 6,
-    studentsCount: 1700,
-    price: 34.99,
-  },
-  {
-    title: "Everything you need to know about UX",
-    image: "images/popular_courses_3.png",
-    score: 4.4,
-    duration: 4,
-    studentsCount: 1300,
-    price: 31.99,
-  },
-  {
-    title: "Learn photography with ease",
-    image: "images/popular_courses_2.png",
-    score: 4.6,
-    duration: 3,
-    studentsCount: 2700,
-    price: 39.99,
-  },
-  {
-    title: "Be a pro in data analysis",
-    image: "images/popular_courses_4.png",
-    score: 4.8,
-    duration: 8,
-    studentsCount: 900,
-    price: 44.99,
-  },
-  {
-    title: "Ethical hacking for dummies",
-    image: "images/popular_courses_5.png",
-    score: 4.9,
-    duration: 1,
-    studentsCount: 9900,
-    price: 99.99,
-  },
-];
+let cardsArray = null;
 
 function numberFormat(number) {
   if (number < 1000) {
@@ -122,12 +73,19 @@ function getCardHTML(card) {
 function renderCardsHTML(cardsArray) {
   const renderedCardsHTML = cardsArray.reduce(function(accumulator, currentValue) {
     return accumulator + getCardHTML(currentValue);
-  }, ''
-  );
+  }, '');
   return document.querySelector('.courses-container').innerHTML = renderedCardsHTML;
 }
 
-renderCardsHTML(cardsArray);
+fetch('../cards.json')
+  .then((response) => {
+    return response.json();
+  })
+  .then((json) => {
+    cardsArray = json;
+    renderCardsHTML(cardsArray);
+  });
+  
 
 function toggleSearchForm(e) {
   e.preventDefault();

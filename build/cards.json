@@ -14,5 +14,37 @@
     "duration": "6",
     "studentsCount": "1700",
     "price": "34.99"
+  },
+  {
+    "title": "Everything you need to know about UX",
+    "image": "images/popular_courses_3.png",
+    "score": "4.4",
+    "duration": "4",
+    "studentsCount": "1300",
+    "price": "31.99"
+  },
+  {
+    "title": "Learn photography with ease",
+    "image": "images/popular_courses_2.png",
+    "score": "4.6",
+    "duration": "3",
+    "studentsCount": "2700",
+    "price": "39.99"
+  },
+  {
+    "title": "Be a pro in data analysis",
+    "image": "images/popular_courses_4.png",
+    "score": "4.8",
+    "duration": "8",
+    "studentsCount": "900",
+    "price": "44.99"
+  },
+  {
+    "title": "Ethical hacking for dummies",
+    "image": "images/popular_courses_5.png",
+    "score": "4.9",
+    "duration": "1",
+    "studentsCount": "9900",
+    "price": "99.99"
   }
 ]
