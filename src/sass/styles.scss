@@ -448,14 +448,6 @@ main {
         }
     }
 
-    &--competate {
-        &__title {
-            font-size: 48px;
-            font-weight: 600;
-            color: $black;
-        }
-    }
-
     &-wrapper {
         display: flex;
         justify-content: space-between;
@@ -818,10 +810,6 @@ main {
         &-img {
             filter: brightness(100%);
             transition: filter .3s;
-
-            &:hover {
-                filter: brightness(170%);
-            }
         }
 
         &-text {
@@ -836,7 +824,11 @@ main {
 
         &:hover {
             .slider__slide-text {
-                color: $brighterOrange;
+                color: $orange;
+            }
+
+            .slider__slide-img {
+                filter: brightness(170%);
             }
         }
     }
@@ -844,5 +836,203 @@ main {
     .swiper-button-prev,
     .swiper-button-next {
         top: 45%;
+    }
+}
+
+.competate {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        width: 40%;
+        font-size: 48px;
+        font-weight: 600px;
+        color: $black;
+        margin-bottom: 64px;
+        align-self: center;
+        text-align: center;
+    }
+}
+
+.notify-form {
+    background-color: $white;
+    box-shadow: 0px 0px 25px rgba(17, 24, 39, 0.18);
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 40px;
+    
+    &__title {
+        text-align: center;
+        margin-bottom: 44px;
+    }
+
+    &__input-container {
+        margin-bottom: 32px;
+
+        &:last-child {
+            margin-top: 64px;
+            margin-bottom: 0;
+            text-align: center;
+        }
+    }
+
+    &__input {
+        border: 1px solid rgb(147, 147, 147);
+        border-radius: 5px;
+        background-color: rgba(168, 168, 168, 0.168);
+        display: block;
+        width: 100%;
+        padding: 18px 20px;
+        border-radius: 10px;
+        font-size: 18px;
+
+        &:focus {
+            outline: 2px solid $brighterOrange;
+            border: none;
+        }
+    }
+
+    &__button {
+        color: $white;
+        padding: 16px 80px;
+        border-radius: 5px;
+        background-color: $brighterOrange;
+        transition: all 0.5s;
+        font-size: 18px;
+
+        &:hover {
+            box-shadow: 0 0 5px 5px $brighterOrange;
+            background-color: $white;
+            color: $black;
+        }
+    }
+}
+
+.reviews {
+    padding: 100px 0;
+
+    &__title {
+        color: $black;
+        text-align: center;
+        font-size: 48px;
+        font-weight: 600;
+        padding-bottom: 54px;
+    }
+
+    &__content-wrapper {
+        display: flex;
+        gap: 90px;
+    }
+
+    &__text-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 65px;
+        width: 30%;
+    }
+
+    &__text {
+        color: $black;
+        font-size: 48px;
+        font-weight: 600;
+        position: relative;
+        margin-top: 20px;
+
+        &--accent {
+            color: $orange;
+        }
+
+        &::after {
+            content: url(../icons/long_underline.svg);
+            position: absolute;
+            top: 80px;
+            left: 0px;
+            transform: rotate(2deg);
+        }
+    }
+
+    &__button-wrapper {
+        display: flex;
+        gap: 50px;
+    }
+
+
+}
+
+.swiper2-button-prev,
+.swiper2-button-next {
+    cursor: pointer;
+
+    svg rect {
+        fill: white;
+        transition: fill 0.3s;
+    }
+
+    svg path {
+        transition: fill 0.3s;
+    }
+
+    &:hover svg rect {
+        fill: $orange;
+    }
+
+    &:hover svg path {
+        fill: rgb(255, 255, 255);
+    }
+}
+
+.reviews-slider {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100vh;
+    min-height: 0;
+    min-width: 0;
+
+    &__slide {
+        color: $black;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        padding: 50px;
+        box-shadow: 0px 0px 15px rgba(185, 185, 185, 0.301);
+        border-radius: 10px;
+
+        &:hover {
+            box-shadow: 0px 0px 10px 10px lighten($orange, 20%);
+        }
+    }
+
+    &__slide-student {
+        display: flex;
+        gap: 16px;
+    }
+
+    &__slide-avatar img {
+        width: 70px;
+        height: 70px;
+        border-radius: 100%;
+    }
+
+    &__slide-name-wrapper {
+        padding: 5px 0;
+    }
+
+    &__slide-name {
+        font-weight: 600;
+    }
+
+    &__slide-job {
+        color: $orange;
+        font-size: 22px;
+    }
+
+    &__slide-comment-wrapper {
+        font-size: 18px;
+    }
+}
+
+.swiper2 {
+    &__wrapper{
+        padding: 20px;
     }
 }

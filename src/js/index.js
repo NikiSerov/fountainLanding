@@ -13,6 +13,21 @@ const swiper = new Swiper(".swiper", {
   },
 });
 
+const swiper2 = new Swiper(".swiper2", {
+  // Optional parameters
+  direction: "horizontal",
+  loop: true,
+  slidesPerView: 1.5,
+  spaceBetween: 32,
+  grabCursor: false,
+
+  // Navigation arrows
+  navigation: {
+    nextEl: ".swiper2-button-next",
+    prevEl: ".swiper2-button-prev",
+  },
+});
+
 const sortParams = {
   priceDesc: 'Price &#8595;',
   priceAsc: 'Price &#8593;',

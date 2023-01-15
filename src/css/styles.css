@@ -435,12 +435,6 @@ main {
   content: "";
 }
 
-.universal-section--competate__title {
-  font-size: 48px;
-  font-weight: 600;
-  color: #000000;
-}
-
 .universal-section-wrapper {
   display: flex;
   justify-content: space-between;
@@ -804,10 +798,6 @@ main {
   transition: filter 0.3s;
 }
 
-.popular-examination .slider__slide-img:hover {
-  filter: brightness(170%);
-}
-
 .popular-examination .slider__slide-text {
   position: absolute;
   bottom: 10px;
@@ -819,10 +809,212 @@ main {
 }
 
 .popular-examination .slider__slide:hover .slider__slide-text {
-  color: #FF6F28;
+  color: #F77D27;
+}
+
+.popular-examination .slider__slide:hover .slider__slide-img {
+  filter: brightness(170%);
 }
 
 .popular-examination .swiper-button-prev,
 .popular-examination .swiper-button-next {
   top: 45%;
+}
+
+.competate {
+  display: flex;
+  flex-direction: column;
+}
+
+.competate__title {
+  width: 40%;
+  font-size: 48px;
+  font-weight: 600px;
+  color: #000000;
+  margin-bottom: 64px;
+  align-self: center;
+  text-align: center;
+}
+
+.notify-form {
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 25px rgba(17, 24, 39, 0.18);
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 40px;
+}
+
+.notify-form__title {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.notify-form__input-container {
+  margin-bottom: 32px;
+}
+
+.notify-form__input-container:last-child {
+  margin-top: 64px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.notify-form__input {
+  border: 1px solid rgb(147, 147, 147);
+  border-radius: 5px;
+  background-color: rgba(168, 168, 168, 0.168);
+  display: block;
+  width: 100%;
+  padding: 18px 20px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.notify-form__input:focus {
+  outline: 2px solid #FF6F28;
+  border: none;
+}
+
+.notify-form__button {
+  color: #FFFFFF;
+  padding: 16px 80px;
+  border-radius: 5px;
+  background-color: #FF6F28;
+  transition: all 0.5s;
+  font-size: 18px;
+}
+
+.notify-form__button:hover {
+  box-shadow: 0 0 5px 5px #FF6F28;
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+.reviews {
+  padding: 100px 0;
+}
+
+.reviews__title {
+  color: #000000;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 600;
+  padding-bottom: 54px;
+}
+
+.reviews__content-wrapper {
+  display: flex;
+  gap: 90px;
+}
+
+.reviews__text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 65px;
+  width: 30%;
+}
+
+.reviews__text {
+  color: #000000;
+  font-size: 48px;
+  font-weight: 600;
+  position: relative;
+  margin-top: 20px;
+}
+
+.reviews__text--accent {
+  color: #F77D27;
+}
+
+.reviews__text::after {
+  content: url(../icons/long_underline.svg);
+  position: absolute;
+  top: 80px;
+  left: 0px;
+  transform: rotate(2deg);
+}
+
+.reviews__button-wrapper {
+  display: flex;
+  gap: 50px;
+}
+
+.swiper2-button-prev,
+.swiper2-button-next {
+  cursor: pointer;
+}
+
+.swiper2-button-prev svg rect,
+.swiper2-button-next svg rect {
+  fill: white;
+  transition: fill 0.3s;
+}
+
+.swiper2-button-prev svg path,
+.swiper2-button-next svg path {
+  transition: fill 0.3s;
+}
+
+.swiper2-button-prev:hover svg rect,
+.swiper2-button-next:hover svg rect {
+  fill: #F77D27;
+}
+
+.swiper2-button-prev:hover svg path,
+.swiper2-button-next:hover svg path {
+  fill: rgb(255, 255, 255);
+}
+
+.reviews-slider {
+  width: 100%;
+  max-width: 100%;
+  max-height: 100vh;
+  min-height: 0;
+  min-width: 0;
+}
+
+.reviews-slider__slide {
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 50px;
+  box-shadow: 0px 0px 15px rgba(185, 185, 185, 0.301);
+  border-radius: 10px;
+}
+
+.reviews-slider__slide:hover {
+  box-shadow: 0px 0px 10px 10px #fbb889;
+}
+
+.reviews-slider__slide-student {
+  display: flex;
+  gap: 16px;
+}
+
+.reviews-slider__slide-avatar img {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+}
+
+.reviews-slider__slide-name-wrapper {
+  padding: 5px 0;
+}
+
+.reviews-slider__slide-name {
+  font-weight: 600;
+}
+
+.reviews-slider__slide-job {
+  color: #F77D27;
+  font-size: 22px;
+}
+
+.reviews-slider__slide-comment-wrapper {
+  font-size: 18px;
+}
+
+.swiper2__wrapper {
+  padding: 20px;
 }
