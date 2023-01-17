@@ -93,8 +93,8 @@ fetch('../cards.json')
     return response.json();
   })
   .then((json) => {
+    renderCardsHTML(json)
     cardsArray = json;
-    renderCardsHTML(cardsArray);
   });
   
 
