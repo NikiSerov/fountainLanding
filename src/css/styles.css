@@ -141,10 +141,6 @@ textarea {
   font-size: 18px;
 }
 
-.page-header__logo {
-  margin: 27px 0 28px 100px;
-}
-
 .page-header__navigation {
   width: 41%;
 }
@@ -206,6 +202,14 @@ textarea {
 .page-header__login-container .register-button:hover {
   background-color: #FF6F28;
   color: #FFFFFF;
+}
+
+.fountain-logo--header {
+  margin: 27px 0 28px 100px;
+}
+
+.fountain-logo--footer {
+  margin-bottom: 15px;
 }
 
 .search-form {
@@ -369,6 +373,11 @@ main {
   background-color: #f99b58;
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
+}
+
+.slider__slide {
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .slider__slide-img {
@@ -866,7 +875,6 @@ main {
   display: block;
   width: 100%;
   padding: 18px 20px;
-  border-radius: 10px;
   font-size: 18px;
 }
 
@@ -1017,4 +1025,122 @@ main {
 
 .swiper2__wrapper {
   padding: 20px;
+}
+
+.footer {
+  background-color: #000000;
+  padding-top: 75px;
+  padding-bottom: 100px;
+  font-size: 20px;
+}
+
+.footer__content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.footer__slogan {
+  width: 270px;
+  margin-bottom: 27px;
+}
+
+.footer__social-links-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.footer__social-link svg path {
+  transition: fill 0.3s;
+}
+
+.footer__social-link:hover svg path {
+  fill: #F77D27;
+}
+
+.footer__contacts-about-us-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+}
+
+.footer__contacts-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer__contact {
+  font-size: 18px;
+}
+
+.footer__contact--telephone,
+.footer__contact--email {
+  transition: color 0.3s;
+}
+
+.footer__contact--telephone:hover,
+.footer__contact--email:hover {
+  color: #F77D27;
+}
+
+.footer__about-us-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__about-us-heading {
+  margin-bottom: 25px;
+}
+
+.footer__about-us-link {
+  margin-bottom: 15px;
+}
+
+.footer__about-us-link:hover .footer__about-us-item {
+  color: #F77D27;
+}
+
+.footer__about-us-item {
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.footer__subscribe-container {
+  text-align: center;
+}
+
+.footer__subscribe-label {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.footer__subscribe-form {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__subscribe-input {
+  width: 420px;
+  padding: 10px;
+  font-size: 20px;
+  display: block;
+}
+
+.footer__subscribe-input:focus {
+  outline: none;
+}
+
+.footer__subscribe-button {
+  font-size: 16px;
+  padding: 10px 20px;
+  display: block;
+  color: #FFFFFF;
+  background-color: #FF6F28;
+  transition: background-color 0.3s;
+}
+
+.footer__subscribe-button:hover {
+  background-color: #db4800;
 }

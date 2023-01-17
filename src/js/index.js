@@ -1,12 +1,10 @@
 const swiper = new Swiper(".swiper", {
-  // Optional parameters
   direction: "horizontal",
   loop: true,
   slidesPerView: 4,
   spaceBetween: 32,
   grabCursor: true,
 
-  // Navigation arrows
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
@@ -14,14 +12,12 @@ const swiper = new Swiper(".swiper", {
 });
 
 const swiper2 = new Swiper(".swiper2", {
-  // Optional parameters
   direction: "horizontal",
   loop: true,
   slidesPerView: 1.5,
   spaceBetween: 32,
-  grabCursor: false,
+  grabCursor: true,
 
-  // Navigation arrows
   navigation: {
     nextEl: ".swiper2-button-next",
     prevEl: ".swiper2-button-prev",
