@@ -101,8 +101,6 @@ textarea {
     resize: none;
 }
 
-//ОБЩИЕ КЛАССЫ
-
 .orange-button {
     background-color: $brighterOrange;
     padding: 20px 42px;
@@ -130,8 +128,6 @@ textarea {
 .hidden {
     display: none;
 }
-
-//////////
 
 .page-header {
     display: flex;
@@ -467,11 +463,6 @@ main {
         width: 43%;
         position: relative;
 
-        &__img {
-            width: 94%;
-            height: 100%;
-        }
-
         &__sideblock-wrapper {
             position: absolute;
 
@@ -483,6 +474,11 @@ main {
             &--examination {
                 bottom: 90px;
                 left: -60px;
+            }
+
+            &--competate {
+                bottom: 120px;
+                right: 0;
             }
         }
     }
@@ -804,7 +800,7 @@ main {
 }
 
 .popular-examination {
-    padding-top: 160px;
+    padding-top: 130px;
     padding-bottom: 100px;
 
     &__title {
@@ -936,7 +932,7 @@ main {
         display: flex;
         flex-direction: column;
         gap: 65px;
-        width: 30%;
+        width: 33%;
     }
 
     &__text {
@@ -1092,14 +1088,9 @@ main {
 
     &__contact {
         font-size: 18px;
-
-        &--telephone,
-        &--email {
-            transition: color 0.3s;
-        }
-
-        &--telephone:hover,
-        &--email:hover {
+        transition: color 0.3s;
+        
+        &:hover {
             color: $orange;
         }
     }
@@ -1164,6 +1155,270 @@ main {
             background-color: darken($brighterOrange, 15%);
         }
     }
+}
 
+@media (max-width: 1385px) {
+    .main-section__title {        
+        width: 46%;
+    }
 
+    .page-header {
+        &__navigation {
+            width: 43%;
+        }
+
+        &__login-container {
+        width: 17%;
+        }
+    }
+    
+    .wrapper {
+        width: 1200px;
+    }
+
+    .universal-section-content__title--accent::after {
+        left: 33%;
+    }
+
+    .course-card {
+        width: 31%;
+    }
+
+    .competate__title {
+        width: 45%;
+    }
+
+    .popular-examination .slider__slide {
+        height: 290px;
+    }    
+}
+
+@media (max-width: 1300px) {
+    .wrapper {
+        width: 1150px;
+    }
+
+    .universal-section-pic {
+        width: 45%;
+    }
+
+    .universal-section-content__title--experts {
+        width: 95%;
+    }
+
+    .page-header {
+        &__navigation {
+            width: 45%;
+        }
+
+        &__login-container {
+            width: 17.5%;
+            }
+    }
+
+    .top-categories .slider__slide {
+        height: 400px;
+    } 
+
+    .course-card-content-main__title {
+        font-size: 23px;
+    }
+    
+    .popular-examination .slider__slide {
+        height: 280px;
+    }   
+    
+    .universal-section-pic__img {
+        width: 95%;
+    }
+
+    .reviews__text-wrapper {
+        width: 34%;
+    }
+}
+
+@media (max-width: 1250px) {
+    .wrapper {
+        width: 1100px;
+    }
+
+    .top-categories .slider__slide {
+        height: 390px;
+    }  
+    
+    .universal-section-content__title--accent::after {
+        left: 34%;
+    }
+
+    .explore__title {
+        width: 38%;
+    }
+
+    .course-card-content-main__title {
+        font-size: 22px;
+    }
+
+    .popular-examination .slider__slide {
+        height: 270px;
+    }   
+
+    .competate__title {
+        width: 50%;
+    }
+
+    .reviews__text-wrapper {
+        width: 37%;
+    }
+}
+
+@media (max-width: 1210px) {
+    .main-section__content {
+        background-position-x:  20%;
+    }
+
+    .main-section__title {
+        width: 53%;
+    }
+
+    .wrapper {
+        width: 1050px;
+    }
+
+    .page-header {
+        &__navigation {
+            width: 47%;
+        }
+
+        &__login-container {
+            width: 18%;
+            }
+    }
+
+    .top-categories .slider__slide {
+        height: 380px;
+    }  
+
+    .universal-section-pic__sideblock-wrapper--instructors {
+        bottom: 70px;
+    }
+
+    .card-content-stats {
+        font-size: 15px;
+    }
+
+    .universal-section-content__title--experts {
+        width: 100%;
+    }
+
+    .popular-examination .slider__slide {
+        height: 260px;
+    }   
+}
+
+@media (max-width: 1150px) {
+    .fountain-logo--header {
+        margin-left: 80px;
+    }
+
+    .page-header__login-container {
+        margin-right: 80px;
+        width: 19%;
+    }
+
+    .page-header__navigation {
+        width: 49%;
+    }
+
+    .top-categories .slider__slide {
+        height: 370px;
+    }  
+
+    .wrapper {
+        width: 1000px;
+    }
+
+    .universal-section-content__title {
+        font-size: 50px;
+    }
+
+    .universal-section-pic__sideblock-wrapper--instructors {
+        bottom: 60px;
+    }
+
+    .course-card {
+        height: 380px;
+    }
+
+    .course-card-content-main__title {
+        font-size: 20px;
+        width: 75%;
+    }
+
+    .course-card-content-stats-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .card-content-stats {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .card-content-stats__duration {
+        margin-right: 0;
+    }
+
+    .popular-examination .slider__slide {
+        height: 250px;
+    }   
+}
+
+@media (max-width: 1100px) {
+    .main-section__content {
+            background-position-x:  25%;
+    }
+
+    .wrapper {
+        width: 980px;
+    }
+
+    .top-categories .slider__slide {
+        height: 360px;
+    }  
+
+    .universal-section-content__title {
+        font-size: 48px;
+    }
+
+    .universal-section-content__title--accent::after {
+        left: 32%;
+        bottom: 95px;
+    }
+
+    .sideblock {
+        width: 160px;
+
+        &--competate {
+            width: 130px;
+        }
+    }
+
+    .popular-examination .slider__slide {
+        height: 240px;
+    }   
+    .notify-form {
+        &__title {
+            margin-bottom: 34px;
+        }
+
+        &__input-container {
+            margin-bottom: 30px;
+    
+            &:last-child {
+                margin-top: 60px;
+                margin-bottom: 0;
+                text-align: center;
+            }
+        }
+    }
 }

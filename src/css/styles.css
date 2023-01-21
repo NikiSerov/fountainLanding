@@ -455,11 +455,6 @@ main {
   position: relative;
 }
 
-.universal-section-pic__img {
-  width: 94%;
-  height: 100%;
-}
-
 .universal-section-pic__sideblock-wrapper {
   position: absolute;
 }
@@ -472,6 +467,11 @@ main {
 .universal-section-pic__sideblock-wrapper--examination {
   bottom: 90px;
   left: -60px;
+}
+
+.universal-section-pic__sideblock-wrapper--competate {
+  bottom: 120px;
+  right: 0;
 }
 
 .universal-section-content {
@@ -788,7 +788,7 @@ main {
 }
 
 .popular-examination {
-  padding-top: 160px;
+  padding-top: 130px;
   padding-bottom: 100px;
 }
 
@@ -919,7 +919,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 65px;
-  width: 30%;
+  width: 33%;
 }
 
 .reviews__text {
@@ -1073,15 +1073,10 @@ main {
 
 .footer__contact {
   font-size: 18px;
-}
-
-.footer__contact--telephone,
-.footer__contact--email {
   transition: color 0.3s;
 }
 
-.footer__contact--telephone:hover,
-.footer__contact--email:hover {
+.footer__contact:hover {
   color: #F77D27;
 }
 
@@ -1143,4 +1138,263 @@ main {
 
 .footer__subscribe-button:hover {
   background-color: #db4800;
+}
+
+@media (max-width: 1385px) {
+  .main-section__title {
+    width: 46%;
+  }
+
+  .page-header__navigation {
+    width: 43%;
+  }
+
+  .page-header__login-container {
+    width: 17%;
+  }
+
+  .wrapper {
+    width: 1200px;
+  }
+
+  .universal-section-content__title--accent::after {
+    left: 33%;
+  }
+
+  .course-card {
+    width: 31%;
+  }
+
+  .competate__title {
+    width: 45%;
+  }
+
+  .popular-examination .slider__slide {
+    height: 290px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .wrapper {
+    width: 1150px;
+  }
+
+  .universal-section-pic {
+    width: 45%;
+  }
+
+  .universal-section-content__title--experts {
+    width: 95%;
+  }
+
+  .page-header__navigation {
+    width: 45%;
+  }
+
+  .page-header__login-container {
+    width: 17.5%;
+  }
+
+  .top-categories .slider__slide {
+    height: 400px;
+  }
+
+  .course-card-content-main__title {
+    font-size: 23px;
+  }
+
+  .popular-examination .slider__slide {
+    height: 280px;
+  }
+
+  .universal-section-pic__img {
+    width: 95%;
+  }
+
+  .reviews__text-wrapper {
+    width: 34%;
+  }
+}
+
+@media (max-width: 1250px) {
+  .wrapper {
+    width: 1100px;
+  }
+
+  .top-categories .slider__slide {
+    height: 390px;
+  }
+
+  .universal-section-content__title--accent::after {
+    left: 34%;
+  }
+
+  .explore__title {
+    width: 38%;
+  }
+
+  .course-card-content-main__title {
+    font-size: 22px;
+  }
+
+  .popular-examination .slider__slide {
+    height: 270px;
+  }
+
+  .competate__title {
+    width: 50%;
+  }
+
+  .reviews__text-wrapper {
+    width: 37%;
+  }
+}
+
+@media (max-width: 1210px) {
+  .main-section__content {
+    background-position-x: 20%;
+  }
+
+  .main-section__title {
+    width: 53%;
+  }
+
+  .wrapper {
+    width: 1050px;
+  }
+
+  .page-header__navigation {
+    width: 47%;
+  }
+
+  .page-header__login-container {
+    width: 18%;
+  }
+
+  .top-categories .slider__slide {
+    height: 380px;
+  }
+
+  .universal-section-pic__sideblock-wrapper--instructors {
+    bottom: 70px;
+  }
+
+  .card-content-stats {
+    font-size: 15px;
+  }
+
+  .universal-section-content__title--experts {
+    width: 100%;
+  }
+
+  .popular-examination .slider__slide {
+    height: 260px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .fountain-logo--header {
+    margin-left: 80px;
+  }
+
+  .page-header__login-container {
+    margin-right: 80px;
+    width: 19%;
+  }
+
+  .page-header__navigation {
+    width: 49%;
+  }
+
+  .top-categories .slider__slide {
+    height: 370px;
+  }
+
+  .wrapper {
+    width: 1000px;
+  }
+
+  .universal-section-content__title {
+    font-size: 50px;
+  }
+
+  .universal-section-pic__sideblock-wrapper--instructors {
+    bottom: 60px;
+  }
+
+  .course-card {
+    height: 380px;
+  }
+
+  .course-card-content-main__title {
+    font-size: 20px;
+    width: 75%;
+  }
+
+  .course-card-content-stats-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card-content-stats {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .card-content-stats__duration {
+    margin-right: 0;
+  }
+
+  .popular-examination .slider__slide {
+    height: 250px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .main-section__content {
+    background-position-x: 25%;
+  }
+
+  .wrapper {
+    width: 980px;
+  }
+
+  .top-categories .slider__slide {
+    height: 360px;
+  }
+
+  .universal-section-content__title {
+    font-size: 48px;
+  }
+
+  .universal-section-content__title--accent::after {
+    left: 32%;
+    bottom: 95px;
+  }
+
+  .sideblock {
+    width: 160px;
+  }
+
+  .sideblock--competate {
+    width: 130px;
+  }
+
+  .popular-examination .slider__slide {
+    height: 240px;
+  }
+
+  .notify-form__title {
+    margin-bottom: 34px;
+  }
+
+  .notify-form__input-container {
+    margin-bottom: 30px;
+  }
+
+  .notify-form__input-container:last-child {
+    margin-top: 60px;
+    margin-bottom: 0;
+    text-align: center;
+  }
 }
