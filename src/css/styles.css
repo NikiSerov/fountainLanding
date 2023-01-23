@@ -874,7 +874,7 @@ main {
   background-color: rgba(168, 168, 168, 0.168);
   display: block;
   width: 100%;
-  padding: 18px 20px;
+  padding: 12px 16px;
   font-size: 18px;
 }
 
@@ -1184,7 +1184,11 @@ main {
   }
 
   .universal-section-content__title--experts {
-    width: 95%;
+    width: 100%;
+  }
+
+  .universal-section-content__title--accent::after {
+    left: 31%;
   }
 
   .page-header__navigation {
@@ -1195,7 +1199,8 @@ main {
     width: 17.5%;
   }
 
-  .top-categories .slider__slide {
+  .top-categories .slider__slide,
+  .top-categories .swiper-slide {
     height: 400px;
   }
 
@@ -1225,8 +1230,12 @@ main {
     height: 390px;
   }
 
+  .top-categories .slider__slide-text {
+    left: 15px;
+  }
+
   .universal-section-content__title--accent::after {
-    left: 34%;
+    left: 32%;
   }
 
   .explore__title {
@@ -1275,6 +1284,10 @@ main {
     height: 380px;
   }
 
+  .top-categories .slider__slide-text {
+    font-size: 28px;
+  }
+
   .universal-section-pic__sideblock-wrapper--instructors {
     bottom: 70px;
   }
@@ -1283,8 +1296,8 @@ main {
     font-size: 15px;
   }
 
-  .universal-section-content__title--experts {
-    width: 100%;
+  .universal-section-content__title--accent::after {
+    left: 34%;
   }
 
   .popular-examination .slider__slide {
@@ -1384,6 +1397,10 @@ main {
     height: 240px;
   }
 
+  .competate__title {
+    width: 60%;
+  }
+
   .notify-form__title {
     margin-bottom: 34px;
   }
@@ -1396,5 +1413,52 @@ main {
     margin-top: 60px;
     margin-bottom: 0;
     text-align: center;
+  }
+}
+
+@media (max-width: 1050px) {
+  .wrapper {
+    width: 930px;
+  }
+
+  .fountain-logo--header {
+    margin-left: 60px;
+  }
+
+  .page-header__login-container {
+    margin-right: 60px;
+    width: 20%;
+  }
+
+  .search-form {
+    right: 30px;
+  }
+
+  .main-section__title {
+    width: 60%;
+  }
+
+  .main-section__text {
+    width: 65%;
+  }
+
+  .top-categories .slider__slide {
+    height: 340px;
+  }
+
+  .top-categories .slider__slide-text {
+    font-size: 26px;
+  }
+
+  .universal-section-pic {
+    width: 46%;
+  }
+
+  .universal-section-content {
+    width: 46%;
+  }
+
+  .popular-examination .slider__slide {
+    height: 220px;
   }
 }
