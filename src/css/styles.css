@@ -30,6 +30,18 @@
   }
 }
 
+@keyframes menuMove {
+  from {
+    top: -310px;
+    opacity: 0.5;
+  }
+
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
 .animate {
   animation-duration: 0.75s;
   animation-name: animate-fade;
@@ -123,6 +135,56 @@ textarea {
 
 .hidden {
   display: none;
+}
+
+.navigation-toggle-button {
+  display: none;
+  width: 26px;
+  height: 26px;
+}
+
+.navigation-toggle-button.opened span {
+  transform: rotate(45deg);
+}
+
+.navigation-toggle-button.opened span::before {
+  top: 0;
+  transform: rotate(0);
+}
+
+.navigation-toggle-button.opened span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+.navigation-span-container {
+  display: flex;
+  align-items: center;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.navigation-span,
+.navigation-span::before,
+.navigation-span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transition-duration: 0.25s;
+}
+
+.navigation-span::before {
+  content: "";
+  top: -8px;
+}
+
+.navigation-span::after {
+  content: "";
+  top: 8px;
 }
 
 .page-header {
@@ -1460,5 +1522,102 @@ main {
 
   .popular-examination .slider__slide {
     height: 220px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    width: 920px;
+  }
+}
+
+@media (max-width: 990px) {
+  .search-form__input {
+    width: 190px;
+  }
+}
+
+@media (max-width: 960px) {
+  .page-header__navigation {
+    width: 52%;
+  }
+
+  .search-form__input {
+    width: 180px;
+  }
+
+  .main-section__title {
+    width: 65%;
+  }
+
+  .main-section__text {
+    width: 65%;
+  }
+
+  .wrapper {
+    width: 880px;
+  }
+
+  .top-categories .slider__slide {
+    height: 320px;
+  }
+
+  .top-categories .slider__slide-text {
+    font-size: 24px;
+  }
+
+  .universal-section-content__title {
+    font-size: 44px;
+  }
+
+  .universal-section-content__title--accent::after {
+    left: 29%;
+    bottom: 86px;
+  }
+
+  .explore__title {
+    width: 47%;
+  }
+
+  .courses-container {
+    gap: 50px;
+    padding: 0 20px;
+  }
+
+  .course-card {
+    width: 47%;
+    height: 405px;
+  }
+
+  .course-card-content-main__title {
+    font-size: 24px;
+    width: 80%;
+  }
+
+  .course-card-content-stats-wrapper {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .card-content-stats {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .card-content-stats__duration {
+    margin-right: 16px;
+  }
+
+  .universal-section-content__title--examination {
+    width: 80%;
+  }
+
+  .universal-section-pic__sideblock-wrapper--examination {
+    bottom: 55px;
+    left: -40px;
+  }
+
+  .popular-examination .slider__slide {
+    height: 210px;
   }
 }
