@@ -1,26 +1,107 @@
 const swiper = new Swiper(".swiper", {
   direction: "horizontal",
   loop: true,
-  slidesPerView: 4,
-  spaceBetween: 32,
+  slidesPerView: 2,
+  spaceBetween: 20,
   grabCursor: true,
 
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+
+  breakpoints: {
+    351: {
+      spaceBetween: 24,
+      slidesPerView: 2,
+    },
+
+    401: {
+      spaceBetween: 32,
+      slidesPerView: 2,
+    },
+
+    601: {
+      slidesPerView: 3,
+      spaceBetween: 32,
+    },
+
+    851: {
+      slidesPerView: 4,
+      spaceBetween: 32,
+    }
+  },
 });
 
 const swiper2 = new Swiper(".swiper2", {
   direction: "horizontal",
   loop: true,
-  slidesPerView: 1.5,
-  spaceBetween: 32,
+  slidesPerView: 1,
+  spaceBetween: 0,
   grabCursor: true,
 
   navigation: {
     nextEl: ".swiper2-button-next",
     prevEl: ".swiper2-button-prev",
+  },
+
+  breakpoints: {
+    651: {
+      slidesPerView: 1.5,
+      spaceBetween: 32,
+    }
+  },
+});
+
+const swiper3 = new Swiper(".swiper3", {
+  direction: "horizontal",
+  loop: true,
+  slidesPerView: 2,
+  spaceBetween: 20,
+  grabCursor: true,
+
+  navigation: {
+    nextEl: ".swiper3-button-next",
+    prevEl: ".swiper3-button-prev",
+  },
+
+  breakpoints: {
+    351: {
+      slidesPerView: 2,
+      spaceBetween: 24,
+    },
+
+    401: {
+      slidesPerView: 2,
+      spaceBetween: 32,
+    },
+
+    601: {
+      slidesPerView: 3,
+      spaceBetween: 32,
+    },
+
+    901: {
+      slidesPerView: 4,
+      spaceBetween: 32,
+    }
+  },
+});
+
+const swiper4 = new Swiper(".swiper4", {
+  effect: 'coverflow',
+  grabCursor: true,
+  centeredSlides: true,
+  slidesPerView: 'auto',
+  coverflowEffect: {
+    rotate: 50,
+    stretch: 0,
+    depth: 100,
+    modifier: 1,
+    slideShadows : true,
+  },
+  pagination: {
+    el: '.swiper-pagination',
   },
 });
 
@@ -38,7 +119,62 @@ const searchFormCloseBtn = document.querySelector(".search-form__close-btn");
 const sortingMenu = document.querySelector(".sorting-selection");
 const sortByBtn = document.querySelector(".sort-container__btn");
 const sortingTypeButtons = document.querySelectorAll(".sorting-selection__button");
+const pageHeader = document.querySelector(".page-header");
+const navToggleBtn = document.querySelector(".navigation-toggle-button");
+const navigation = document.querySelector(".page-header__navigation");
+const swiper4wrapper = document.querySelector(".swiper4-wrapper");
+const coursesContainer = document.querySelector(".courses-container");
 let cardsArray = null;
+
+function changeHeaderOpacity(isWhite) {
+  if (isWhite) {
+    pageHeader.classList.add('dense');
+  } else {
+    pageHeader.classList.remove('dense');
+  }
+};
+
+function onScroll() {
+  if (window.pageYOffset > 100) {
+    changeHeaderOpacity(true);
+    pageHeader.classList.add('scrolled');
+  } else {
+    changeHeaderOpacity(false);
+    pageHeader.classList.remove('scrolled');
+  }
+};
+
+function closeMenu() {
+  navigation.classList.add('fadeout');
+  setTimeout(() => {
+    navigation.classList.remove('showMenu');
+    navigation.classList.remove('fadeout');
+  }, 400);
+  if (!pageHeader.classList.contains('scrolled')) {
+    changeHeaderOpacity(false);
+  }
+};
+
+function toggleMenu() {
+  navToggleBtn.classList.toggle('opened-btn');
+  document.body.classList.toggle('lock-scroll');
+  if (!navigation.classList.contains('showMenu')) {
+    navigation.classList.add('showMenu');
+    changeHeaderOpacity(true);
+  } else {
+    closeMenu();
+  }
+};
+
+function closeMenuOutsideClick(e) {
+  const element = e.target;
+
+  if (!element.closest(".page-header")) { 
+    navToggleBtn.classList.remove('opened-btn');
+    document.body.classList.remove('lock-scroll');
+    closeMenu();
+  }
+};
 
 function numberFormat(number) {
   if (number < 1000) {
@@ -50,7 +186,7 @@ function numberFormat(number) {
 
 function getCardHTML(card) {
   return `
-  <a href="#" class="course-card">
+  <div class="course-card">
     <div class="course-card__image-container">
       <img class="course-card__image" src="${card.image}">
     </div>
@@ -77,23 +213,29 @@ function getCardHTML(card) {
         <span class="card-content-stats__price">${card.price}$</span>
       </div>
     </div>
-  </a>
+  </div>
   `
 };
 
-function renderCardsHTML(cardsArray) {
+function renderCardsHTML(cardsArray, container) {
   const renderedCardsHTML = cardsArray.reduce(function(accumulator, currentValue) {
     return accumulator + getCardHTML(currentValue);
   }, '');
-  return document.querySelector('.courses-container').innerHTML = renderedCardsHTML;
+  return container.innerHTML = renderedCardsHTML;
 }
 
 fetch('../cards.json')
-  .then((response) => {
-    return response.json();
-  })
+  .then(response => response.json())
   .then((json) => {
-    renderCardsHTML(json)
+    if (document.body.offsetWidth <= 500) {
+      renderCardsHTML(json, swiper4wrapper);
+      const courseCards = Array.from(document.querySelectorAll(".course-card"));
+      courseCards.forEach((courseCard) => {
+        courseCard.classList.add("swiper-slide");
+      });
+    } else {
+      renderCardsHTML(json, coursesContainer);
+    }
     cardsArray = json;
   });
   
@@ -145,16 +287,16 @@ const getSortedCoursesCardsHTML = (cardsArray, sortParam) => {
   switch(sortParam) {
     case 'priceAsc': 
       setLocation({sort: 'priceAsc'});
-      return renderCardsHTML(cardsArray.sort((a, b) => a.price - b.price));
+      return renderCardsHTML(cardsArray.sort((a, b) => a.price - b.price), coursesContainer);
     case 'priceDesc':
       setLocation({sort: 'priceDesc'});
-      return renderCardsHTML(cardsArray.sort((a, b) => b.price - a.price));
+      return renderCardsHTML(cardsArray.sort((a, b) => b.price - a.price), coursesContainer);
     case 'nameAsc':
       setLocation({sort: 'nameAsc'});
-      return renderCardsHTML(cardsArray.sort((a, b) => a.title.localeCompare(b.title)));
+      return renderCardsHTML(cardsArray.sort((a, b) => a.title.localeCompare(b.title)), coursesContainer);
     case 'nameDesc':
       setLocation({sort: 'nameDesc'});
-      return renderCardsHTML(cardsArray.sort((a, b) => b.title.localeCompare(a.title)));
+      return renderCardsHTML(cardsArray.sort((a, b) => b.title.localeCompare(a.title)), coursesContainer);
   }  
 };
 
@@ -181,8 +323,11 @@ const parseUrl = () => {
 
 parseUrl();
 
+window.addEventListener("scroll", onScroll);
+document.addEventListener("click", closeMenuOutsideClick);
 searchBtn.addEventListener("click", toggleSearchForm);
 searchFormCloseBtn.addEventListener("click", toggleSearchForm);
 searchFormCloseBtn.addEventListener("click", loginBtnsAnimation);
 sortByBtn.addEventListener("click", toggleSortingMenu);
 sortingMenu.addEventListener("click", selectSortingType);
+navToggleBtn.addEventListener('click', toggleMenu);
