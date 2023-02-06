@@ -2098,6 +2098,17 @@ main {
     .reviews__content-wrapper {
         gap: 70px;
     }
+
+    .scrollTopBtn {
+        &:hover {
+            box-shadow: none;
+            background-color: $brighterOrange;
+        }
+
+        &:hover svg path {
+            fill: $white;
+        }
+    }
 }
 
 @media (max-width: 800px) {
@@ -2431,6 +2442,13 @@ main {
         &__subscribe-input {
             width: 100%;
         }
+    }
+
+    .scrollTopBtn {
+        bottom: 25px;
+        right: 25px;
+        width: 40px;
+        height: 40px;
     }
 }
 
@@ -2769,6 +2787,18 @@ main {
 
     .footer__about-us-item {
         font-size: 16px;
+    }
+
+    .scrollTopBtn {
+        bottom: 15px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
     }
 }
 
