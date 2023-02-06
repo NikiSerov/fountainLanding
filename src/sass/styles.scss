@@ -55,7 +55,7 @@
     }
 }
 
-@keyframes menuMove {
+@keyframes fadeIn {
     from {
         opacity: 0;
     }
@@ -349,7 +349,7 @@ textarea {
 
 .page-header__navigation.showMenu {
     display: flex;
-    animation: menuMove 0.4s forwards ease;
+    animation: fadeIn 0.4s forwards ease;
 }
 
 .page-header__navigation.showMenu.fadeout {
@@ -1314,6 +1314,43 @@ main {
             background-color: darken($brighterOrange, 15%);
         }
     }
+}
+
+.scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: $brighterOrange;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    z-index: 100;
+
+    svg path {
+        transition: fill 0.3s;
+    }
+
+    &:hover {
+        background-color: $white;
+        box-shadow: 0 0 10px 10px rgba($color: $brighterOrange, $alpha: 0.5);
+    }
+
+    &:hover svg path {
+        fill: $brighterOrange;
+    }
+}
+
+.scrollTopBtn.show {
+    display: flex;
+    animation: fadeIn 0.4s forwards ease;
+}
+
+.scrollTopBtn.show.fadeOut {
+    animation: fadeOut 0.4s forwards ease;
 }
 
 @media (max-width: 1385px) {

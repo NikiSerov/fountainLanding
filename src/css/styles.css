@@ -51,39 +51,13 @@
   }
 }
 
-@keyframes menuMove {
+@keyframes fadeIn {
   from {
     opacity: 0;
   }
 
   to {
     opacity: 1;
-  }
-}
-
-@keyframes caretColorFade {
-  0% {
-    caret-color: rgb(255, 242, 0);
-  }
-
-  20% {
-    caret-color: rgb(255, 221, 0);
-  }
-
-  40% {
-    caret-color: rgb(255, 196, 0);
-  }
-
-  60% {
-    caret-color: rgb(255, 166, 0);
-  }
-
-  80% {
-    caret-color: rgb(255, 136, 0);
-  }
-
-  100% {
-    caret-color: rgb(255, 106, 0);
   }
 }
 
@@ -370,7 +344,7 @@ textarea {
 
 .page-header__navigation.showMenu {
   display: flex;
-  animation: menuMove 0.4s forwards ease;
+  animation: fadeIn 0.4s forwards ease;
 }
 
 .page-header__navigation.showMenu.fadeout {
@@ -1318,6 +1292,43 @@ main {
 
 .footer__subscribe-button:hover {
   background-color: #db4800;
+}
+
+.scrollTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #FF6F28;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  z-index: 100;
+}
+
+.scrollTopBtn svg path {
+  transition: fill 0.3s;
+}
+
+.scrollTopBtn:hover {
+  background-color: #FFFFFF;
+  box-shadow: 0 0 10px 10px rgba(255, 111, 40, 0.5);
+}
+
+.scrollTopBtn:hover svg path {
+  fill: #FF6F28;
+}
+
+.scrollTopBtn.show {
+  display: flex;
+  animation: fadeIn 0.4s forwards ease;
+}
+
+.scrollTopBtn.show.fadeOut {
+  animation: fadeOut 0.4s forwards ease;
 }
 
 @media (max-width: 1385px) {

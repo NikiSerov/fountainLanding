@@ -112,6 +112,10 @@ const sortParams = {
   nameAsc: 'Name (A &#8594; Z)',
 }
 
+const slidersInitWidthInPX = 500;
+const documentScrolledYInPX = 100;
+const toShowToTopBtnScrolledYInPX = 500;
+const toTopBtnInitWidthInPX = 700;
 const searchForm = document.querySelector(".search-form");
 const searchBtn = document.querySelector(".search-button");
 const loginBtn = document.querySelector(".login-button");
@@ -125,6 +129,7 @@ const navToggleBtn = document.querySelector(".navigation-toggle-button");
 const navigation = document.querySelector(".page-header__navigation");
 const swiper4wrapper = document.querySelector(".swiper4-wrapper");
 const coursesContainer = document.querySelector(".courses-container");
+const toTopBtn = document.querySelector(".scrollTopBtn");
 let cardsArray = null;
 
 function changeHeaderOpacity(isWhite) {
@@ -136,7 +141,7 @@ function changeHeaderOpacity(isWhite) {
 };
 
 function onScroll() {
-  if (window.pageYOffset > 100) {
+  if (window.scrollY > documentScrolledYInPX) {
     changeHeaderOpacity(true);
     pageHeader.classList.add('scrolled');
   } else {
@@ -228,7 +233,7 @@ function renderCardsHTML(cardsArray, container) {
 fetch('../cards.json')
   .then(response => response.json())
   .then((json) => {
-    if (document.body.offsetWidth <= 500) {
+    if (document.body.offsetWidth <= slidersInitWidthInPX) {
       renderCardsHTML(json, swiper4wrapper);
       const courseCards = Array.from(document.querySelectorAll(".course-card"));
       courseCards.forEach((courseCard) => {
@@ -239,6 +244,20 @@ fetch('../cards.json')
     }
     cardsArray = json;
   });
+
+function showToTopBtn() {
+  if (document.body.offsetWidth >= toTopBtnInitWidthInPX) {
+    if (window.scrollY >= toShowToTopBtnScrolledYInPX) {
+      toTopBtn.classList.add("show");
+    } else {
+      toTopBtn.classList.remove("show");
+    }
+  }
+}
+
+function scrollToTop() {
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
 
 function toggleSearchForm(e) {
   e.preventDefault();
@@ -324,7 +343,9 @@ const parseUrl = () => {
 parseUrl();
 
 window.addEventListener("scroll", onScroll);
+window.addEventListener("scroll", showToTopBtn);
 document.addEventListener("click", closeMenuOutsideClick);
+toTopBtn.addEventListener("click", scrollToTop);
 searchBtn.addEventListener("click", toggleSearchForm);
 searchFormCloseBtn.addEventListener("click", toggleSearchForm);
 searchFormCloseBtn.addEventListener("click", loginBtnsAnimation);
