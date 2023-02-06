@@ -33,7 +33,7 @@
     "duration": "3",
     "studentsCount": "2700",
     "price": "39.99",
-    "description": "This is a comprehensive course designed to help you master the art of photography. You'll learn the basics of camera settings, lighting, and composition, as well as more advanced techniques such as shooting in manual mode and post-processing images."
+    "description": "This course is designed to help you master the art of photography. You'll learn the basics of camera settings, lighting, and composition, as well as shooting in manual mode and post-processing images."
   },
   {
     "title": "Be a pro in data analysis",
@@ -42,7 +42,7 @@
     "duration": "8",
     "studentsCount": "900",
     "price": "44.99",
-    "description": "This course is designed to help you become a data analyst. You'll learn how to collect, clean, and manipulate data using popular tools such as Python and SQL, as well as how to perform advanced statistical analysis and create data visualizations to communicate insights."
+    "description": "This course is designed to help you become a data analyst. You'll learn how to collect, clean, and manipulate data using popular tools such as Python and SQL, as well as how to perform advanced statistical analysis."
   },
   {
     "title": "Ethical hacking for dummies",
@@ -51,6 +51,6 @@
     "duration": "1",
     "studentsCount": "9900",
     "price": "99.99",
-    "description": "This is a comprehensive course designed to introduce you to the world of ethical hacking. You'll learn the basics of network security, as well as how to identify and exploit common security vulnerabilities using tools and techniques used by both ethical hackers and malicious attackers."
+    "description": "This is a comprehensive course designed to introduce you to the world of ethical hacking. You'll learn the basics of network security, as well as how to identify and exploit common security vulnerabilities."
   }
 ]

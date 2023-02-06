@@ -1464,8 +1464,10 @@ main {
         height: 400px;
     }
 
-    .course-card-content-main__title {
-        font-size: 23px;
+    .course-card-content {
+        &-main__title {
+            font-size: 23px;
+        }
     }
 
     .popular-examination .examination-slider__slide {
@@ -1603,16 +1605,30 @@ main {
 
     .course-card {
         height: 380px;
+
+        &:hover {
+            .course-card__image-container {
+                height: 15%;
+            }
+        }
+
+        &-description__text {
+            font-size: 16px;
+        }
     }
 
-    .course-card-content-main__title {
-        font-size: 20px;
-        width: 75%;
+    .course-card-content-main {
+        margin-bottom: 14px;
+
+        &__title {
+            font-size: 20px;
+            width: 75%;
+        }
     }
 
     .course-card-content-stats-wrapper {
         flex-direction: column;
-        gap: 20px;
+        gap: 14px;
     }
 
     .card-content-stats {
@@ -1821,11 +1837,25 @@ main {
     .course-card {
         width: 47%;
         height: 405px;
+
+        &:hover {
+            .course-card__image-container {
+                height: 25%;
+            }
+        }
     }
 
-    .course-card-content-main__title {
-        font-size: 24px;
-        width: 80%;
+    .course-card-content-main {
+        margin-bottom: 18px;
+
+        &__title {
+            font-size: 24px;
+            width: 80%;
+        }
+    }
+
+    .course-card-description__text {
+        font-size: 18px;
     }
 
     .course-card-content-stats-wrapper {
@@ -2087,6 +2117,16 @@ main {
 
     .course-card {
         width: 46%;
+
+        &:hover {
+            .course-card__image-container {
+                height: 25%;
+            }
+        }
+    }
+
+    .course-card-description__text {
+        font-size: 16px;
     }
 
     .universal-section-content__text--examination {
@@ -2228,11 +2268,19 @@ main {
         &__image-container {
             height: 52%;
         }
+
+        &:hover {
+            .course-card__image-container {
+                height: 15%;
+            }
+        }
     }
 
-    .course-card-content-main__title {
-        font-size: 20px;
-        width: 75%;
+    .course-card-content-main {
+        &__title {
+            font-size: 20px;
+            width: 75%;
+        }
     }
 
     .course-card-content-stats-wrapper {
@@ -2366,6 +2414,16 @@ main {
 
     .course-card {
         height: 380px;
+
+        &:hover {
+            .course-card__image-container {
+                height: 52%;
+            }
+
+            .course-card-description {
+                display: none;
+            }
+        }
     }
 
     .course-card-content-main__title {
