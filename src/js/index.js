@@ -208,6 +208,11 @@ function getCardHTML(card) {
           <span class="score__number">${card.score}</span>
         </div>
       </div>
+      <div class="course-card-description">
+        <p class="course-card-description__text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit elit, bibendum volutpat platea mi, adipiscing eget magna.
+        </p>
+      </div>
       <div class="course-card-content-stats-wrapper">
         <div class="card-content-stats">
           <span class="card-content-stats__duration">${

@@ -59,6 +59,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -191,6 +192,7 @@ textarea {
     cursor: pointer;
 
     &:hover {
+
         .navigation-span,
         .navigation-span::before,
         .navigation-span::after {
@@ -333,7 +335,7 @@ textarea {
     background-color: rgba($color: $white, $alpha: 0.95);
 
     .profile-button svg path {
-        fill: $black; 
+        fill: $black;
     }
 
     .profile-button:hover svg path {
@@ -355,6 +357,7 @@ textarea {
 .page-header__navigation.showMenu.fadeout {
     animation: fadeOut 0.4s forwards ease;
 }
+
 .fountain-logo {
     &--header {
         margin: 27px 0 28px 100px;
@@ -611,6 +614,7 @@ main {
     &-pic {
         width: 43%;
         position: relative;
+        transition: transform 0.3s;
 
         &__sideblock-wrapper {
             position: absolute;
@@ -666,6 +670,11 @@ main {
 
         &__button {
             align-self: flex-start;
+
+            &:hover {
+                color: $black;
+                box-shadow: 0 0 10px 10px lighten($brighterOrange, 25%);
+            }
         }
     }
 }
@@ -680,6 +689,12 @@ main {
     justify-content: space-evenly;
     box-shadow: 0px 0px 69px rgba(112, 112, 112, 0.25);
     border-radius: 10px;
+    transition: all 0.3s;
+
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 0px 69px rgba(85, 85, 85, 0.38);
+    }
 
     &__logo {
         width: 50px;
@@ -881,11 +896,25 @@ main {
     background-color: $white;
 
     &:hover {
-       box-shadow: 0px 0px 25px rgb(75, 69, 69);
+        box-shadow: 0px 0px 25px rgb(75, 69, 69);
+
+        .course-card-content {
+            height: 70%;
+        }
+
+        .course-card__image-container {
+            height: 30%;
+        }
+
+        .course-card-description {
+            display: block;
+            animation: fadeIn 0.5s forwards ease;
+        }
     }
 
     &__image-container {
         height: 53%;
+        transition: height 0.4s;
     }
 
     &__image {
@@ -900,6 +929,7 @@ main {
         flex-direction: column;
         justify-content: space-between;
         height: 47%;
+        transition: height 0.4s;
 
         &-main {
             display: flex;
@@ -910,6 +940,15 @@ main {
             &__title {
                 width: 80%;
             }
+        }
+    }
+
+    &-description {
+        display: none;
+
+        &__text {
+            color: $black;
+            font-size: 20px;
         }
     }
 }
@@ -962,7 +1001,7 @@ main {
             height: 303px;
             border-radius: 10px;
             overflow: hidden;
-    
+
             &-img {
                 width: 100%;
                 height: 100%;
@@ -970,7 +1009,7 @@ main {
                 filter: brightness(100%);
                 transition: filter .3s;
             }
-            
+
             &-text {
                 position: absolute;
                 bottom: 15px;
@@ -980,7 +1019,7 @@ main {
                 transition: color .3s ease-in-out;
                 width: 170px;
             }
-    
+
             &:hover {
                 .examination-slider__slide-text {
                     color: $brighterOrange;
@@ -1020,7 +1059,7 @@ main {
     border-radius: 10px;
     font-size: 20px;
     padding: 40px;
-    
+
     &__title {
         text-align: center;
         margin-bottom: 44px;
@@ -1061,7 +1100,7 @@ main {
         font-size: 18px;
 
         &:hover {
-            box-shadow: 0 0 5px 5px $brighterOrange;
+            box-shadow: 0 0 10px 10px lighten($brighterOrange, 25%);
             background-color: $white;
             color: $black;
         }
@@ -1194,7 +1233,7 @@ main {
 }
 
 .swiper2 {
-    &__wrapper{
+    &__wrapper {
         padding: 20px;
     }
 }
@@ -1237,7 +1276,7 @@ main {
         justify-content: space-between;
         width: 40%;
     }
-    
+
     &__contacts-wrapper {
         display: flex;
         flex-direction: column;
@@ -1247,7 +1286,7 @@ main {
     &__contact {
         font-size: 18px;
         transition: color 0.3s;
-        
+
         &:hover {
             color: $orange;
         }
@@ -1354,7 +1393,7 @@ main {
 }
 
 @media (max-width: 1385px) {
-    .main-section__title {        
+    .main-section__title {
         width: 46%;
     }
 
@@ -1364,10 +1403,10 @@ main {
         }
 
         &__login-container {
-        width: 17%;
+            width: 17%;
         }
     }
-    
+
     .wrapper {
         width: 1200px;
     }
@@ -1386,7 +1425,7 @@ main {
 
     .popular-examination .examination-slider__slide {
         height: 290px;
-    }    
+    }
 }
 
 @media (max-width: 1300px) {
@@ -1413,22 +1452,22 @@ main {
 
         &__login-container {
             width: 17.5%;
-            }
+        }
     }
 
     .top-categories .slider__slide,
     .top-categories .swiper-slide {
         height: 400px;
-    } 
+    }
 
     .course-card-content-main__title {
         font-size: 23px;
     }
-    
+
     .popular-examination .examination-slider__slide {
         height: 280px;
-    }   
-    
+    }
+
     .universal-section-pic__img {
         width: 95%;
     }
@@ -1445,12 +1484,12 @@ main {
 
     .top-categories .slider__slide {
         height: 390px;
-    }  
+    }
 
     .top-categories .slider__slide-text {
         left: 15px;
     }
-    
+
     .universal-section-content__title--accent::after {
         left: 32%;
     }
@@ -1465,7 +1504,7 @@ main {
 
     .popular-examination .examination-slider__slide {
         height: 270px;
-    }   
+    }
 
     .competate__title {
         width: 50%;
@@ -1478,7 +1517,7 @@ main {
 
 @media (max-width: 1210px) {
     .main-section__content {
-        background-position-x:  20%;
+        background-position-x: 20%;
     }
 
     .main-section__title {
@@ -1496,13 +1535,13 @@ main {
 
         &__login-container {
             width: 18%;
-            }
+        }
     }
 
     .top-categories .slider__slide {
         height: 380px;
-    } 
-    
+    }
+
     .top-categories .slider__slide-text {
         font-size: 28px;
     }
@@ -1521,7 +1560,7 @@ main {
 
     .popular-examination .examination-slider__slide {
         height: 260px;
-    }   
+    }
 
     .footer__contacts-about-us-wrapper {
         width: 45%;
@@ -1544,7 +1583,7 @@ main {
 
     .top-categories .slider__slide {
         height: 370px;
-    }  
+    }
 
     .wrapper {
         width: 1000px;
@@ -1583,12 +1622,12 @@ main {
 
     .popular-examination .examination-slider__slide {
         height: 250px;
-    }   
+    }
 }
 
 @media (max-width: 1100px) {
     .main-section__content {
-            background-position-x:  25%;
+        background-position-x: 25%;
     }
 
     .wrapper {
@@ -1597,7 +1636,7 @@ main {
 
     .top-categories .slider__slide {
         height: 360px;
-    }  
+    }
 
     .universal-section-content__title {
         font-size: 48px;
@@ -1618,8 +1657,8 @@ main {
 
     .popular-examination .examination-slider__slide {
         height: 240px;
-    }  
-    
+    }
+
     .competate__title {
         width: 60%;
     }
@@ -1631,7 +1670,7 @@ main {
 
         &__input-container {
             margin-bottom: 30px;
-    
+
             &:last-child {
                 margin-top: 60px;
                 margin-bottom: 0;
@@ -1671,7 +1710,7 @@ main {
 
     .top-categories .slider__slide {
         height: 340px;
-    }  
+    }
 
     .top-categories .slider__slide-text {
         font-size: 26px;
@@ -1692,7 +1731,7 @@ main {
             font-size: 20px;
             width: 140px;
         }
-    }   
+    }
 
     .footer__contacts-about-us-wrapper {
         width: 50%;
@@ -1751,7 +1790,7 @@ main {
 
     .top-categories .slider__slide {
         height: 320px;
-    }  
+    }
 
     .top-categories .slider__slide-text {
         font-size: 24px;
@@ -1810,7 +1849,7 @@ main {
 
     .popular-examination .examination-slider__slide {
         height: 210px;
-    }   
+    }
 }
 
 @media (max-width: 900px) {
@@ -1866,7 +1905,7 @@ main {
         height: 100%;
     }
 
-    .main-section__text, 
+    .main-section__text,
     .main-section__title {
         width: 70%;
     }
@@ -1877,7 +1916,7 @@ main {
 
     .top-categories .slider__slide {
         height: 300px;
-    }  
+    }
 
     .top-categories .slider__slide-text {
         font-size: 22px;
@@ -1901,6 +1940,7 @@ main {
     .universal-section-pic__sideblock-wrapper--instructors {
         bottom: 45px;
     }
+
     .sideblock {
         width: 140px;
 
@@ -1937,7 +1977,7 @@ main {
         &-text {
             font-size: 24px;
         }
-    }   
+    }
 
     .competate__title {
         width: 75%;
@@ -1981,17 +2021,24 @@ main {
     .main-section__benefits {
         padding: 30px 50px;
     }
-    
+
     .wrapper {
         width: 90%;
     }
 
     .top-categories .slider__slide {
         height: 350px;
-    }  
+    }
 
     .top-categories .slider__slide-text {
         font-size: 24px;
+    }
+
+    .sideblock {
+        &:hover {
+            transform: none;
+            box-shadow: 0px 0px 69px rgba(112, 112, 112, 0.25);
+        }
     }
 
     .universal-section-wrapper {
@@ -2015,7 +2062,7 @@ main {
         bottom: 30px;
     }
 
-    .universal-section-content, 
+    .universal-section-content,
     .universal-section-pic {
         width: 50%;
     }
@@ -2046,7 +2093,7 @@ main {
         bottom: 40px;
         left: -30px;
     }
-    
+
     .popular-examination {
         padding-top: 100px;
         padding-bottom: 90px;
@@ -2054,7 +2101,7 @@ main {
 
     .popular-examination .examination-slider__slide {
         height: 230px;
-    }   
+    }
 
     .notify-form {
         &__title {
@@ -2112,7 +2159,8 @@ main {
 }
 
 @media (max-width: 800px) {
-    .main-section__text, 
+
+    .main-section__text,
     .main-section__title {
         width: 80%;
     }
@@ -2131,7 +2179,7 @@ main {
 
     .top-categories .slider__slide {
         height: 320px;
-    }  
+    }
 
     .universal-section-content__title {
         font-size: 36px;
@@ -2199,8 +2247,8 @@ main {
 
     .popular-examination .examination-slider__slide {
         height: 220px;
-    } 
-    
+    }
+
     .popular-examination .examination-slider__slide-text {
         font-size: 20px;
     }
@@ -2220,11 +2268,11 @@ main {
     }
 
     .wrapper--footer {
-        display: flex; 
+        display: flex;
         flex-direction: column-reverse;
     }
 
-    .footer { 
+    .footer {
         &__subscribe-container {
             margin-bottom: 45px;
         }
@@ -2253,7 +2301,7 @@ main {
 @media (max-width: 750px) {
     .main-section {
         &__benefits {
-            padding: 30px 40px;    
+            padding: 30px 40px;
         }
 
         &__title {
@@ -2270,11 +2318,11 @@ main {
 
     .top-categories .slider__slide {
         height: 300px;
-    }  
+    }
 
     .popular-examination .examination-slider__slide {
         height: 210px;
-    } 
+    }
 
     .swiper3-button-prev,
     .swiper3-button-next {
@@ -2293,7 +2341,7 @@ main {
 
     .top-categories .slider__slide {
         height: 280px;
-    }  
+    }
 
     .swiper-button-next,
     .swiper-button-prev {
@@ -2322,21 +2370,21 @@ main {
 
     .popular-examination .examination-slider__slide {
         height: 200px;
-    } 
-    
+    }
+
     .competate__title {
         width: 80%;
     }
 }
 
 @media (max-width: 650px) {
-    .main-section{
+    .main-section {
         &__title {
             width: 85%;
         }
 
         &__content {
-        background-position-x: 28%;
+            background-position-x: 28%;
         }
 
         &__benefits {
@@ -2350,7 +2398,7 @@ main {
 
     .top-categories .slider__slide {
         height: 260px;
-    }  
+    }
 
     .swiper-button-next,
     .swiper-button-prev {
@@ -2371,7 +2419,7 @@ main {
 
     .popular-examination .examination-slider__slide {
         height: 180px;
-    } 
+    }
 
     .popular-examination .examination-slider__slide-text {
         font-size: 18px;
@@ -2470,7 +2518,7 @@ main {
             font-size: 46px;
             line-height: 60px;
             width: 80%;
-        }  
+        }
 
         &__text {
             font-size: 18px;
@@ -2501,7 +2549,7 @@ main {
 
         .slider__slide {
             height: 320px;
-        }  
+        }
     }
 
     .universal-section-wrapper {
@@ -2524,7 +2572,7 @@ main {
 
     .universal-section-content {
         align-items: center;
-        
+
         &__title {
             font-size: 40px;
             margin-bottom: 20px;
@@ -2540,7 +2588,7 @@ main {
             align-self: center;
         }
     }
-    
+
     .courses-container {
         gap: 20px;
     }
@@ -2577,7 +2625,7 @@ main {
 
     .popular-examination .examination-slider__slide {
         height: 250px;
-    } 
+    }
 
     .popular-examination .examination-slider__slide-text {
         font-size: 24px;
@@ -2622,7 +2670,7 @@ main {
     .slider-wrapper__see-all-btn {
         font-size: 22px;
     }
-    
+
     .universal-section-content__title {
         font-size: 38px;
 
@@ -2673,7 +2721,7 @@ main {
 
     .popular-examination .examination-slider__slide {
         height: 230px;
-    } 
+    }
 
     .competate__title {
         font-size: 38px;
@@ -2834,7 +2882,7 @@ main {
                 margin-top: 0;
             }
         }
-            
+
         .benefit-text {
             font-size: 16px;
         }
@@ -2863,22 +2911,22 @@ main {
     .universal-section-pic__sideblock-wrapper--instructors {
         bottom: 20px;
     }
-    
+
     .popular-examination {
         .examination-slider {
             &__slide {
                 height: 190px;
-            } 
+            }
 
             &__slide-text {
                 font-size: 18px;
                 width: 120px;
             }
         }
-    } 
+    }
 
     .swiper3-button-next svg,
-    .swiper3-button-prev svg{
+    .swiper3-button-prev svg {
         width: 30px;
         height: 30px;
     }
@@ -2912,7 +2960,7 @@ main {
         &__slide-comment {
             font-size: 16px;
         }
-    }  
+    }
 
     .footer__contacts-wrapper {
         gap: 10px;
@@ -2923,7 +2971,7 @@ main {
         padding-top: 50px;
         padding-bottom: 20px;
     }
-}  
+}
 
 @media (max-width: 400px) {
     .fountain-logo--header {
@@ -2966,7 +3014,7 @@ main {
         &__benefits {
             bottom: -41px;
         }
-            
+
         .benefit-text {
             font-size: 14px;
         }
@@ -3063,7 +3111,7 @@ main {
         .examination-slider {
             &__slide {
                 height: 170px;
-            } 
+            }
 
             &__slide-text {
                 font-size: 16px;
@@ -3073,7 +3121,7 @@ main {
                 left: 18px;
             }
         }
-    } 
+    }
 
     .swiper2-button-next svg,
     .swiper2-button-prev svg {
@@ -3142,9 +3190,9 @@ main {
         .examination-slider {
             &__slide {
                 height: 150px;
-            } 
+            }
         }
-    } 
+    }
 
     .swiper3-button-next {
         transform: translate(15%, -32%);
@@ -3158,7 +3206,7 @@ main {
         &__about-us-heading {
             font-size: 16px;
         }
-    
+
         &__about-us-item {
             font-size: 14px;
         }
