@@ -111,6 +111,57 @@ const sortParams = {
   nameDesc: 'Name (Z &#8594; A)',
   nameAsc: 'Name (A &#8594; Z)',
 }
+
+const cardsArray = [
+  {
+    title: "Learn marketing from top instructors",
+    image: "images/popular_courses_6.png",
+    score: 4.5,
+    duration: 5,
+    studentsCount: 1500,
+    price: 29.99
+  },
+  {
+    title: "Front-end dev is not that hard",
+    image: "images/popular_courses_1.png",
+    score: 4.7,
+    duration: 6,
+    studentsCount: 1700,
+    price: 34.99
+  },
+  {
+    title: "Most important things in UI/UX",
+    image: "images/popular_courses_3.png",
+    score: 4.4,
+    duration: 4,
+    studentsCount: 1300,
+    price: 31.99
+  },
+  {
+    title: "Learn photography with ease",
+    image: "images/popular_courses_2.png",
+    score: 4.6,
+    duration: 3,
+    studentsCount: 2700,
+    price: 39.99
+  },
+  {
+    title: "Be a pro in data analysis",
+    image: "images/popular_courses_4.png",
+    score: 4.8,
+    duration: 8,
+    studentsCount: 900,
+    price: 44.99
+  },
+  {
+    title: "Ethical hacking for dummies",
+    image: "images/popular_courses_5.png",
+    score: 4.9,
+    duration: 1,
+    studentsCount: 9900,
+    price: 99.99
+  }
+]
 const searchForm = document.querySelector(".search-form");
 const searchBtn = document.querySelector(".search-button");
 const loginBtn = document.querySelector(".login-button");
@@ -124,7 +175,7 @@ const navToggleBtn = document.querySelector(".navigation-toggle-button");
 const navigation = document.querySelector(".page-header__navigation");
 const swiper4wrapper = document.querySelector(".swiper4-wrapper");
 const coursesContainer = document.querySelector(".courses-container");
-let cardsArray = null;
+// let cardsArray = null;
 
 function changeHeaderOpacity(isWhite) {
   if (isWhite) {
@@ -224,21 +275,34 @@ function renderCardsHTML(cardsArray, container) {
   return container.innerHTML = renderedCardsHTML;
 }
 
-fetch('../cards.json')
-  .then(response => response.json())
-  .then((json) => {
-    if (document.body.offsetWidth <= 500) {
-      renderCardsHTML(json, swiper4wrapper);
-      const courseCards = Array.from(document.querySelectorAll(".course-card"));
-      courseCards.forEach((courseCard) => {
-        courseCard.classList.add("swiper-slide");
-      });
-    } else {
-      renderCardsHTML(json, coursesContainer);
-    }
-    cardsArray = json;
-  });
-  
+// fetch('../cards.json')
+//   .then(response => response.json())
+//   .then((json) => {
+//     if (document.body.offsetWidth <= 500) {
+//       renderCardsHTML(json, swiper4wrapper);
+//       const courseCards = Array.from(document.querySelectorAll(".course-card"));
+//       courseCards.forEach((courseCard) => {
+//         courseCard.classList.add("swiper-slide");
+//       });
+//     } else {
+//       renderCardsHTML(json, coursesContainer);
+//     }
+//     cardsArray = json;
+//   });
+
+function renderCards() {
+  if (document.body.offsetWidth <= 500) {
+    renderCardsHTML(cardsArray, swiper4wrapper);
+    const courseCards = Array.from(document.querySelectorAll(".course-card"));
+    courseCards.forEach((courseCard) => {
+      courseCard.classList.add("swiper-slide");
+    });
+  } else {
+    renderCardsHTML(cardsArray, coursesContainer);
+  }
+} 
+
+renderCards();
 
 function toggleSearchForm(e) {
   e.preventDefault();
@@ -324,6 +388,7 @@ const parseUrl = () => {
 parseUrl();
 
 window.addEventListener("scroll", onScroll);
+window.addEventListener("resize", renderCards);
 document.addEventListener("click", closeMenuOutsideClick);
 searchBtn.addEventListener("click", toggleSearchForm);
 searchFormCloseBtn.addEventListener("click", toggleSearchForm);
