@@ -877,18 +877,15 @@ main {
   cursor: pointer;
   transition: box-shadow 0.5s;
   background-color: #FFFFFF;
+  position: relative;
 }
 
 .course-card:hover {
   box-shadow: 0px 0px 25px rgb(75, 69, 69);
 }
 
-.course-card:hover .course-card-content {
-  height: 70%;
-}
-
 .course-card:hover .course-card__image-container {
-  height: 30%;
+  height: 20%;
 }
 
 .course-card:hover .course-card-description {
@@ -921,10 +918,17 @@ main {
   align-items: flex-start;
   width: 100%;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .course-card-content-main__title {
   width: 80%;
+}
+
+.course-card-content-stats-wrapper {
+  position: absolute;
+  bottom: 18px;
+  width: 88%;
 }
 
 .course-card-description {
@@ -933,7 +937,7 @@ main {
 
 .course-card-description__text {
   color: #000000;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .score {

@@ -5,7 +5,8 @@
     "score": "4.5",
     "duration": "5",
     "studentsCount": "1500",
-    "price": "29.99"
+    "price": "29.99",
+    "description": "This course offers comprehensive training in the field of marketing, taught by leading industry experts. You will gain a deep understanding of the latest marketing techniques and strategies, as well as practical skills."
   },
   {
     "title": "Front-end dev is not that hard",
@@ -13,7 +14,8 @@
     "score": "4.7",
     "duration": "6",
     "studentsCount": "1700",
-    "price": "34.99"
+    "price": "34.99",
+    "description": "This is a beginner-friendly course that demystifies the world of front-end web development. You'll learn the basics of HTML, CSS, and JavaScript and understand how they work together to create dynamic and interactive websites."
   },
   {
     "title": "Most important things in UI/UX",
@@ -21,7 +23,8 @@
     "score": "4.4",
     "duration": "4",
     "studentsCount": "1300",
-    "price": "31.99"
+    "price": "31.99",
+    "description": "This is a comprehensive course that covers the key concepts and best practices of user interface (UI) and user experience (UX) design. You'll learn the principles of designing intuitive and aesthetically pleasing interfaces."
   },
   {
     "title": "Learn photography with ease",
@@ -29,7 +32,8 @@
     "score": "4.6",
     "duration": "3",
     "studentsCount": "2700",
-    "price": "39.99"
+    "price": "39.99",
+    "description": "This is a comprehensive course designed to help you master the art of photography. You'll learn the basics of camera settings, lighting, and composition, as well as more advanced techniques such as shooting in manual mode and post-processing images."
   },
   {
     "title": "Be a pro in data analysis",
@@ -37,7 +41,8 @@
     "score": "4.8",
     "duration": "8",
     "studentsCount": "900",
-    "price": "44.99"
+    "price": "44.99",
+    "description": "This course is designed to help you become a data analyst. You'll learn how to collect, clean, and manipulate data using popular tools such as Python and SQL, as well as how to perform advanced statistical analysis and create data visualizations to communicate insights."
   },
   {
     "title": "Ethical hacking for dummies",
@@ -45,6 +50,7 @@
     "score": "4.9",
     "duration": "1",
     "studentsCount": "9900",
-    "price": "99.99"
+    "price": "99.99",
+    "description": "This is a comprehensive course designed to introduce you to the world of ethical hacking. You'll learn the basics of network security, as well as how to identify and exploit common security vulnerabilities using tools and techniques used by both ethical hackers and malicious attackers."
   }
 ]
