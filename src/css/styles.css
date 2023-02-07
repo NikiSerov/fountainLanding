@@ -893,6 +893,10 @@ main {
   animation: fadeIn 0.5s forwards ease;
 }
 
+.course-card:hover .score {
+  transform: scale(1.1);
+}
+
 .course-card__image-container {
   height: 53%;
   transition: height 0.4s;
@@ -945,6 +949,7 @@ main {
   gap: 6px;
   align-items: center;
   margin-top: 7px;
+  transition: transform 0.4s;
 }
 
 .score__number {
