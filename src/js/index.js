@@ -115,7 +115,6 @@ const sortParams = {
 const slidersInitWidthInPX = 500;
 const documentScrolledYInPX = 100;
 const toShowToTopBtnScrolledYInPX = 500;
-const toTopBtnInitWidthInPX = 700;
 const searchForm = document.querySelector(".search-form");
 const searchBtn = document.querySelector(".search-button");
 const loginBtn = document.querySelector(".login-button");

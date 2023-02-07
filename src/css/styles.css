@@ -324,24 +324,6 @@ textarea {
   color: #FFFFFF;
 }
 
-.page-header.dense {
-  background-color: rgba(255, 255, 255, 0.95);
-}
-
-.page-header.dense .profile-button svg path {
-  fill: #000000;
-}
-
-.page-header.dense .profile-button:hover svg path {
-  fill: #FF6F28;
-}
-
-.page-header.dense .navigation-span,
-.page-header.dense .navigation-span::before,
-.page-header.dense .navigation-span::after {
-  background-color: #000000;
-}
-
 .page-header__navigation.showMenu {
   display: flex;
   animation: fadeIn 0.4s forwards ease;
@@ -1856,6 +1838,24 @@ main {
     left: 0;
     height: 75px;
     z-index: 10;
+  }
+
+  .page-header.dense {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+
+  .page-header.dense .profile-button svg path {
+    fill: #000000;
+  }
+
+  .page-header.dense .profile-button:hover svg path {
+    fill: #FF6F28;
+  }
+
+  .page-header.dense .navigation-span,
+  .page-header.dense .navigation-span::before,
+  .page-header.dense .navigation-span::after {
+    background-color: #000000;
   }
 
   .page-header__navigation {

@@ -331,24 +331,6 @@ textarea {
     }
 }
 
-.page-header.dense {
-    background-color: rgba($color: $white, $alpha: 0.95);
-
-    .profile-button svg path {
-        fill: $black;
-    }
-
-    .profile-button:hover svg path {
-        fill: $brighterOrange;
-    }
-
-    .navigation-span,
-    .navigation-span::before,
-    .navigation-span::after {
-        background-color: $black;
-    }
-}
-
 .page-header__navigation.showMenu {
     display: flex;
     animation: fadeIn 0.4s forwards ease;
@@ -1899,6 +1881,24 @@ main {
         left: 0;
         height: 75px;
         z-index: 10;
+
+        &.dense {
+            background-color: rgba($color: $white, $alpha: 0.95);
+        
+            .profile-button svg path {
+                fill: $black;
+            }
+        
+            .profile-button:hover svg path {
+                fill: $brighterOrange;
+            }
+        
+            .navigation-span,
+            .navigation-span::before,
+            .navigation-span::after {
+                background-color: $black;
+            }
+        }
 
         &__navigation {
             display: none;
