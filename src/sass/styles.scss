@@ -110,7 +110,6 @@ button {
     appearance: none;
     border-radius: 0;
     border: none;
-    cursor: pointer;
     font-family: "Source Sans Pro", sans-serif;
 }
 
@@ -126,6 +125,7 @@ button {
     font-size: 18px;
     font-weight: 400;
     color: $white;
+    cursor: pointer;
 }
 
 textarea {
