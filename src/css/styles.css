@@ -772,6 +772,7 @@ main {
   align-self: flex-end;
   position: relative;
   width: 125px;
+  z-index: 10;
 }
 
 .sort-container__btn {
@@ -1077,7 +1078,6 @@ main {
 
 .notify-form__input:focus {
   outline: 2px solid #FF6F28;
-  border: none;
 }
 
 .notify-form__button {
@@ -1178,7 +1178,7 @@ main {
   min-width: 0;
 }
 
-.reviews-slider__slide {
+.reviews-slider .reviews-slider__slide {
   color: #000000;
   display: flex;
   flex-direction: column;
@@ -1186,9 +1186,10 @@ main {
   padding: 50px;
   box-shadow: 0px 0px 15px rgba(185, 185, 185, 0.301);
   border-radius: 10px;
+  transition: box-shadow 0.3s;
 }
 
-.reviews-slider__slide:hover {
+.reviews-slider .reviews-slider__slide:hover {
   box-shadow: 0px 0px 10px 10px #fbb889;
 }
 

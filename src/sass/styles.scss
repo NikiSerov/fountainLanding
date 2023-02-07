@@ -670,7 +670,7 @@ main {
 
         &__button {
             align-self: flex-start;
-
+            
             &:hover {
                 color: $black;
                 box-shadow: 0 0 10px 10px lighten($brighterOrange, 25%);
@@ -788,6 +788,7 @@ main {
     align-self: flex-end;
     position: relative;
     width: 125px;
+    z-index: 10;
 
     &__btn {
         background-color: $brighterOrange;
@@ -1096,7 +1097,6 @@ main {
 
         &:focus {
             outline: 2px solid $brighterOrange;
-            border: none;
         }
     }
 
@@ -1196,7 +1196,7 @@ main {
     min-height: 0;
     min-width: 0;
 
-    &__slide {
+    .reviews-slider__slide {
         color: $black;
         display: flex;
         flex-direction: column;
@@ -1204,6 +1204,7 @@ main {
         padding: 50px;
         box-shadow: 0px 0px 15px rgba(185, 185, 185, 0.301);
         border-radius: 10px;
+        transition: box-shadow 0.3s;
 
         &:hover {
             box-shadow: 0px 0px 10px 10px lighten($orange, 20%);
