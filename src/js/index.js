@@ -365,7 +365,11 @@ const parseUrl = () => {
   if (sortParam) {
     const element = document.querySelector(`[data-sort=${sortParam}]`);
     element.classList.add("selected");
-    getSortedCoursesCardsHTML(cardsArray, sortParam);
+    fetch("../cards.json")
+      .then((response) => response.json())
+      .then((json) => {
+        getSortedCoursesCardsHTML(json, sortParam);
+      });
     setSortBtnText(sortParams[sortParam]);
   }
 };
