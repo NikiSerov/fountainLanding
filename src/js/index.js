@@ -246,20 +246,41 @@ function renderCardsHTML(cardsArray, container) {
   return (container.innerHTML = renderedCardsHTML);
 }
 
-fetch("../cards.json")
-  .then((response) => response.json())
-  .then((json) => {
-    if (document.body.offsetWidth <= slidersInitWidthInPX) {
-      renderCardsHTML(json, swiper4wrapper);
-      const courseCards = Array.from(document.querySelectorAll(".course-card"));
-      courseCards.forEach((courseCard) => {
-        courseCard.classList.add("swiper-slide");
-      });
-    } else {
-      renderCardsHTML(json, coursesContainer);
-    }
-    cardsArray = json;
-  });
+async function getCards() {
+  const response  = await fetch("../cards.json");
+  const responseJSON = await response.json();
+  return responseJSON;
+};
+
+async function renderCards() {
+  const cards = await getCards();
+  if (document.body.offsetWidth <= slidersInitWidthInPX) {
+    renderCardsHTML(cards, swiper4wrapper);
+    const courseCards = Array.from(document.querySelectorAll(".course-card"));
+    courseCards.forEach((courseCard) => {
+      courseCard.classList.add("swiper-slide");
+    });
+  } else {
+    renderCardsHTML(cards, coursesContainer);
+  }
+}
+
+renderCards();
+
+// fetch("../cards.json")
+//   .then((response) => response.json())
+//   .then((json) => {
+//     if (document.body.offsetWidth <= slidersInitWidthInPX) {
+//       renderCardsHTML(json, swiper4wrapper);
+//       const courseCards = Array.from(document.querySelectorAll(".course-card"));
+//       courseCards.forEach((courseCard) => {
+//         courseCard.classList.add("swiper-slide");
+//       });
+//     } else {
+//       renderCardsHTML(json, coursesContainer);
+//     }
+//     cardsArray = json;
+//   });
 
 function showToTopBtn() {
   if (window.scrollY >= toShowToTopBtnScrolledYInPX) {
@@ -304,52 +325,53 @@ function toggleSortingMenu() {
   }
 }
 
-const setSortBtnText = (sortName) => {
+function setSortBtnText(sortName) {
   sortByBtn.querySelector(".sort-container__selected-sort").innerHTML =
     sortName;
 };
 
-const selectSortingType = (e) => {
+function selectSortingType(e) {
   const element = e.target;
   if (!element.classList.contains("selected")) {
     e.currentTarget.querySelector(".selected")?.classList.remove("selected");
     element.classList.add("selected");
     setSortBtnText(sortParams[element.dataset.sort]);
     toggleSortingMenu();
-    getSortedCoursesCardsHTML(cardsArray, element.dataset.sort);
+    getSortedCoursesCardsHTML(element.dataset.sort);
   }
 };
 
-const getSortedCoursesCardsHTML = (cardsArray, sortParam) => {
+async function getSortedCoursesCardsHTML(sortParam) {
+  const cards = await getCards();
   switch (sortParam) {
     case "priceAsc":
       setLocation({ sort: "priceAsc" });
       return renderCardsHTML(
-        cardsArray.sort((a, b) => a.price - b.price),
+        cards.sort((a, b) => a.price - b.price),
         coursesContainer
       );
     case "priceDesc":
       setLocation({ sort: "priceDesc" });
       return renderCardsHTML(
-        cardsArray.sort((a, b) => b.price - a.price),
+        cards.sort((a, b) => b.price - a.price),
         coursesContainer
       );
     case "nameAsc":
       setLocation({ sort: "nameAsc" });
       return renderCardsHTML(
-        cardsArray.sort((a, b) => a.title.localeCompare(b.title)),
+        cards.sort((a, b) => a.title.localeCompare(b.title)),
         coursesContainer
       );
     case "nameDesc":
       setLocation({ sort: "nameDesc" });
       return renderCardsHTML(
-        cardsArray.sort((a, b) => b.title.localeCompare(a.title)),
+        cards.sort((a, b) => b.title.localeCompare(a.title)),
         coursesContainer
       );
   }
 };
 
-const setLocation = (paramObj) => {
+function setLocation(paramObj) {
   let queryString = "?";
   for (let key in paramObj) {
     queryString += `${key}=${paramObj[key]}&`;
@@ -359,17 +381,13 @@ const setLocation = (paramObj) => {
   window.history.pushState({ path: newurl }, "", newurl);
 };
 
-const parseUrl = () => {
+function parseUrl() {
   const url = new URL(window.location.href);
   const sortParam = url.searchParams.get("sort");
   if (sortParam) {
     const element = document.querySelector(`[data-sort=${sortParam}]`);
     element.classList.add("selected");
-    fetch("../cards.json")
-      .then((response) => response.json())
-      .then((json) => {
-        getSortedCoursesCardsHTML(json, sortParam);
-      });
+    getSortedCoursesCardsHTML(sortParam);
     setSortBtnText(sortParams[sortParam]);
   }
 };
