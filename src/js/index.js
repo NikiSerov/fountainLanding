@@ -1,117 +1,3 @@
-const swiper = new Swiper(".swiper", {
-  direction: "horizontal",
-  loop: true,
-  slidesPerView: 2,
-  spaceBetween: 20,
-  grabCursor: true,
-
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-
-  breakpoints: {
-    351: {
-      spaceBetween: 24,
-      slidesPerView: 2,
-    },
-
-    401: {
-      spaceBetween: 32,
-      slidesPerView: 2,
-    },
-
-    601: {
-      slidesPerView: 3,
-      spaceBetween: 32,
-    },
-
-    851: {
-      slidesPerView: 4,
-      spaceBetween: 32,
-    },
-  },
-});
-
-const swiper2 = new Swiper(".swiper2", {
-  direction: "horizontal",
-  loop: true,
-  slidesPerView: 1,
-  spaceBetween: 0,
-  grabCursor: true,
-
-  navigation: {
-    nextEl: ".swiper2-button-next",
-    prevEl: ".swiper2-button-prev",
-  },
-
-  breakpoints: {
-    651: {
-      slidesPerView: 1.5,
-      spaceBetween: 32,
-    },
-  },
-});
-
-const swiper3 = new Swiper(".swiper3", {
-  direction: "horizontal",
-  loop: true,
-  slidesPerView: 2,
-  spaceBetween: 20,
-  grabCursor: true,
-
-  navigation: {
-    nextEl: ".swiper3-button-next",
-    prevEl: ".swiper3-button-prev",
-  },
-
-  breakpoints: {
-    351: {
-      slidesPerView: 2,
-      spaceBetween: 24,
-    },
-
-    401: {
-      slidesPerView: 2,
-      spaceBetween: 32,
-    },
-
-    601: {
-      slidesPerView: 3,
-      spaceBetween: 32,
-    },
-
-    901: {
-      slidesPerView: 4,
-      spaceBetween: 32,
-    },
-  },
-});
-
-const swiper4 = new Swiper(".swiper4", {
-  effect: "coverflow",
-  grabCursor: true,
-  centeredSlides: true,
-  slidesPerView: "auto",
-  coverflowEffect: {
-    rotate: 50,
-    stretch: 0,
-    depth: 100,
-    modifier: 1,
-    slideShadows: true,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-  },
-});
-
-const sortParams = {
-  priceDesc: "Price &#8595;",
-  priceAsc: "Price &#8593;",
-  nameDesc: "Name (Z &#8594; A)",
-  nameAsc: "Name (A &#8594; Z)",
-};
-
 const slidersInitWidthInPX = 500;
 const documentScrolledYInPX = 100;
 const toShowToTopBtnScrolledYInPX = 500;
@@ -128,10 +14,140 @@ const sortingTypeButtons = document.querySelectorAll(
 const pageHeader = document.querySelector(".page-header");
 const navToggleBtn = document.querySelector(".navigation-toggle-button");
 const navigation = document.querySelector(".page-header__navigation");
-const swiper4wrapper = document.querySelector(".swiper4-wrapper");
+const cardsSliderWrapper = document.querySelector(".swiper4-wrapper");
 const coursesContainer = document.querySelector(".courses-container");
-const toTopBtn = document.querySelector(".scrollTopBtn");
-let cardsArray = null;
+const toTopBtn = document.querySelector(".scroll-top-button");
+const cardsArray = [];
+
+const commonSliderParams = {
+  grabCursor: true,
+  loop: true,
+};
+
+const sortParams = {
+  priceDesc: "Price &#8595;",
+  priceAsc: "Price &#8593;",
+  nameDesc: "Name (Z &#8594; A)",
+  nameAsc: "Name (A &#8594; Z)",
+};
+
+function initTopCategoriesSlider() {
+  new Swiper(".swiper", {
+    slidesPerView: 2,
+    spaceBetween: 20,
+    ...commonSliderParams,
+
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+    breakpoints: {
+      351: {
+        spaceBetween: 24,
+        slidesPerView: 2,
+      },
+
+      401: {
+        spaceBetween: 32,
+        slidesPerView: 2,
+      },
+
+      601: {
+        slidesPerView: 3,
+        spaceBetween: 32,
+      },
+
+      851: {
+        slidesPerView: 4,
+        spaceBetween: 32,
+      },
+    },
+  });
+}
+
+function initReviewsSlider() {
+  new Swiper(".swiper2", {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    ...commonSliderParams,
+
+    navigation: {
+      nextEl: ".swiper2-button-next",
+      prevEl: ".swiper2-button-prev",
+    },
+
+    breakpoints: {
+      651: {
+        slidesPerView: 1.5,
+        spaceBetween: 32,
+      },
+    },
+  });
+}
+
+function initExaminationSlider() {
+  new Swiper(".swiper3", {
+    slidesPerView: 2,
+    spaceBetween: 20,
+    ...commonSliderParams,
+
+    navigation: {
+      nextEl: ".swiper3-button-next",
+      prevEl: ".swiper3-button-prev",
+    },
+
+    breakpoints: {
+      351: {
+        slidesPerView: 2,
+        spaceBetween: 24,
+      },
+
+      401: {
+        slidesPerView: 2,
+        spaceBetween: 32,
+      },
+
+      601: {
+        slidesPerView: 3,
+        spaceBetween: 32,
+      },
+
+      901: {
+        slidesPerView: 4,
+        spaceBetween: 32,
+      },
+    },
+  });
+}
+
+function initCardsSlider() {
+  new Swiper(".swiper4", {
+    effect: "coverflow",
+    centeredSlides: true,
+    slidesPerView: "auto",
+    ...commonSliderParams,
+
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+  });
+}
+
+function initSliders() {
+  initExaminationSlider();
+  initReviewsSlider();
+  initTopCategoriesSlider();
+}
+
+initSliders();
 
 function changeHeaderOpacity(isWhite) {
   if (isWhite) {
@@ -235,7 +251,7 @@ function getCardHTML(card) {
   `;
 }
 
-function renderCardsHTML(cardsArray, container) {
+function renderCardsHTML(cardsArray) {
   const renderedCardsHTML = cardsArray.reduce(function (
     accumulator,
     currentValue
@@ -243,44 +259,24 @@ function renderCardsHTML(cardsArray, container) {
     return accumulator + getCardHTML(currentValue);
   },
   "");
-  return (container.innerHTML = renderedCardsHTML);
-}
 
-async function getCards() {
-  const response  = await fetch("../cards.json");
-  const responseJSON = await response.json();
-  return responseJSON;
-};
-
-async function renderCards() {
-  const cards = await getCards();
   if (document.body.offsetWidth <= slidersInitWidthInPX) {
-    renderCardsHTML(cards, swiper4wrapper);
+    cardsSliderWrapper.innerHTML = renderedCardsHTML;
     const courseCards = Array.from(document.querySelectorAll(".course-card"));
     courseCards.forEach((courseCard) => {
       courseCard.classList.add("swiper-slide");
     });
+    initCardsSlider();
   } else {
-    renderCardsHTML(cards, coursesContainer);
+    coursesContainer.innerHTML = renderedCardsHTML;
   }
 }
 
-renderCards();
-
-// fetch("../cards.json")
-//   .then((response) => response.json())
-//   .then((json) => {
-//     if (document.body.offsetWidth <= slidersInitWidthInPX) {
-//       renderCardsHTML(json, swiper4wrapper);
-//       const courseCards = Array.from(document.querySelectorAll(".course-card"));
-//       courseCards.forEach((courseCard) => {
-//         courseCard.classList.add("swiper-slide");
-//       });
-//     } else {
-//       renderCardsHTML(json, coursesContainer);
-//     }
-//     cardsArray = json;
-//   });
+async function getCards() {
+  const response = await fetch("../cards.json");
+  const responseJSON = await response.json();
+  return responseJSON;
+}
 
 function showToTopBtn() {
   if (window.scrollY >= toShowToTopBtnScrolledYInPX) {
@@ -328,7 +324,7 @@ function toggleSortingMenu() {
 function setSortBtnText(sortName) {
   sortByBtn.querySelector(".sort-container__selected-sort").innerHTML =
     sortName;
-};
+}
 
 function selectSortingType(e) {
   const element = e.target;
@@ -337,39 +333,30 @@ function selectSortingType(e) {
     element.classList.add("selected");
     setSortBtnText(sortParams[element.dataset.sort]);
     toggleSortingMenu();
-    getSortedCoursesCardsHTML(element.dataset.sort);
+    getSortedCoursesCardsHTML(element.dataset.sort, cardsArray);
   }
-};
+}
 
-async function getSortedCoursesCardsHTML(sortParam) {
-  const cards = await getCards();
+async function getSortedCoursesCardsHTML(sortParam, cards) {
   switch (sortParam) {
     case "priceAsc":
       setLocation({ sort: "priceAsc" });
-      return renderCardsHTML(
-        cards.sort((a, b) => a.price - b.price),
-        coursesContainer
-      );
+      return renderCardsHTML(cards.sort((a, b) => a.price - b.price));
     case "priceDesc":
       setLocation({ sort: "priceDesc" });
-      return renderCardsHTML(
-        cards.sort((a, b) => b.price - a.price),
-        coursesContainer
-      );
+      return renderCardsHTML(cards.sort((a, b) => b.price - a.price));
     case "nameAsc":
       setLocation({ sort: "nameAsc" });
       return renderCardsHTML(
-        cards.sort((a, b) => a.title.localeCompare(b.title)),
-        coursesContainer
+        cards.sort((a, b) => a.title.localeCompare(b.title))
       );
     case "nameDesc":
       setLocation({ sort: "nameDesc" });
       return renderCardsHTML(
-        cards.sort((a, b) => b.title.localeCompare(a.title)),
-        coursesContainer
+        cards.sort((a, b) => b.title.localeCompare(a.title))
       );
   }
-};
+}
 
 function setLocation(paramObj) {
   let queryString = "?";
@@ -379,20 +366,29 @@ function setLocation(paramObj) {
   const { protocol, host, pathname } = window.location;
   const newurl = `${protocol}//${host}${pathname}${queryString.slice(0, -1)}`;
   window.history.pushState({ path: newurl }, "", newurl);
-};
+}
 
 function parseUrl() {
   const url = new URL(window.location.href);
-  const sortParam = url.searchParams.get("sort");
+  return url.searchParams.get("sort");
+}
+
+const sortParam = parseUrl();
+
+handleSortParams(sortParam);
+
+async function handleSortParams(sortParam) {
+  const cards = await getCards();
+  cardsArray.push(...cards);
   if (sortParam) {
     const element = document.querySelector(`[data-sort=${sortParam}]`);
     element.classList.add("selected");
-    getSortedCoursesCardsHTML(sortParam);
+    getSortedCoursesCardsHTML(sortParam, cards);
     setSortBtnText(sortParams[sortParam]);
+  } else {
+    renderCardsHTML(cards);
   }
 };
-
-parseUrl();
 
 window.addEventListener("scroll", onScroll);
 window.addEventListener("scroll", showToTopBtn);
